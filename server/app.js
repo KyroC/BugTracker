@@ -5,6 +5,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const bugRouter = require('./controllers/bugController')
 const usersRouter = require('./controllers/userController')
+const projectRouter = require('./controllers/projectController')
 
 const DB = process.env.ATLAS_URI
 
@@ -17,8 +18,10 @@ mongoose.connect(DB, {
 app.use(express.json())
 app.use(cors())
 
+//Routes
 app.use('/api/bugs', bugRouter)
 app.use('/api/users', usersRouter)
+app.use('/api/projects', projectRouter)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {

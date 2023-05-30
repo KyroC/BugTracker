@@ -9,10 +9,10 @@ const projectSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref:"User"
     },
-    bugs: {
+    bugs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Bug"
-    }
+    }]
 })
 
 const Project = mongoose.model('Project',projectSchema)

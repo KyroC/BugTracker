@@ -5,17 +5,17 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    address: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
         required: true
     },
-    password: {
+    passwordHash: {
         type: String,
-        required: true,
+        required: true
+    },
+    admin: {
+        type: Boolean,
+        required: true
     }
 })
 

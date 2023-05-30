@@ -4,6 +4,7 @@ require('dotenv').config()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const bugRouter = require('./controllers/bugController')
+const usersRouter = require('./controllers/userController')
 
 const DB = process.env.ATLAS_URI
 
@@ -16,7 +17,8 @@ mongoose.connect(DB, {
 app.use(express.json())
 app.use(cors())
 
-app.use('/api/bugs',bugRouter)
+app.use('/api/bugs', bugRouter)
+app.use('/api/users', usersRouter)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {

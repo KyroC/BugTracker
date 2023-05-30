@@ -5,7 +5,7 @@ const User = require('../models/userModel')
 
 bugRouter.get('/', async(req,res) => {
     const bugs = await Bug
-    response.json(bugs)
+    res.json(bugs)
 })
 
 bugRouter.post('/', async(req,res) => {

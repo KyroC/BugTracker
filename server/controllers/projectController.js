@@ -9,14 +9,14 @@ projectRouter.get('/', async (req,res) => {
 })
 
 projectRouter.post('/',async (req,res) => {
-    const {name, users, bugs} = await Project
+    const {name, users, bugs} = req.body
     const project = new Project ({
         name,
         users,
         bugs
     })
     const savedProject = await project.save()
-    res.json(Project)
+    res.json(savedProject)
 })
 
 module.exports = projectRouter

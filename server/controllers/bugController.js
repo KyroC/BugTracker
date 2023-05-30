@@ -1,13 +1,13 @@
 const bugRouter = require('express').Router()
 const Bug = require('../models/bugModel')
-const Project = require('../models/projectModel')
-const User = require('../models/userModel')
 
+//Get request
 bugRouter.get('/', async(req,res) => {
     const bugs = await Bug.find({})
     res.json(bugs)
 })
 
+//Post request
 bugRouter.post('/', async(req,res) => {
     const body = req.body
 

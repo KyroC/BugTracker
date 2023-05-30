@@ -5,7 +5,7 @@ const Bug = require('../models/bugModel')
 
 
 usersRouter.get('/', async(req,res) => {
-    const users = await User
+    const users = await User.find({})
     res.json(users)
 })
 

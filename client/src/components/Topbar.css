@@ -1,0 +1,18 @@
+.topbar {
+    display:flex;
+    height: 64px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar-right ul {
+    list-style-type:none;
+    text-align: center;
+    list-style-position:inside;
+    padding:0px;
+}
+.topbar-right ul li {
+    display: inline-block;
+    padding: 0px 10px 0px 10px;
+}

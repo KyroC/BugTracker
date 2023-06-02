@@ -1,0 +1,11 @@
+.project-card{
+   
+}
+.projects-container {
+    display:inline-grid;
+    height:100%;
+    width:100%;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    justify-items:center;
+}

@@ -1,5 +1,6 @@
 import './Navbar.css'
 import logo from '../images/buggy-logo.png'
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
     return(
@@ -11,10 +12,17 @@ const Navbar = () => {
                             <img src={logo} alt="Logo"/>
                         </a>
                     </li>
-                    <li>Dashboard Home</li>
-                    <li>Manage Role Assignments</li>
+                    <li>
+                        <Link to ="/">Dashboard Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/Projects">My Projects</Link>
+                    </li>
+                    <li>
+                        <Link to ="">Manage Role Assignments</Link>
+                    </li>
                     <li>Manage Project Users</li>
-                    <li>My Projects</li>
+                    
                     <li>My Tickets</li>
                     <li>User Profile</li>
                 </ul>

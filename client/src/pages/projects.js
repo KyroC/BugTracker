@@ -43,11 +43,22 @@ let bugs = [{
     description: "description5",
     team: "UI",
     comment: 5,
+},
+{
+    status: "To Do",
+    title: "bug6",
+    author: "author6",
+    description: "description6",
+    team: "Developers",
+    comment: 5,
 }]
 const ProjectDisplay = () => {
     return(statuses.map(status => 
     <div className="bug-card">
-        <div className="bug-status"><h2>{status}</h2></div> 
+        <div className="bug-status">
+            <h2>{status}</h2>
+            <button>Add New</button>
+            </div> 
         <Bugcard bugs={bugs.filter(bug => bug.status === status)} />
     </div>)
     )

@@ -1,8 +1,5 @@
-.project-card{
-   
-}
-.projects-container {
-    display:inline-grid;
+.bug-grid{
+    display:grid;
     height:100%;
     width:100%;
     grid-template-columns: repeat(4, 1fr);

@@ -9,14 +9,21 @@ projectRouter.get('/', async (req,res) => {
 })
 
 projectRouter.post('/',async (req,res) => {
-    const {name, details, users, bugs} = req.body
+    const {name, details, users, bugs, creatorId} = req.body
+
+    const creator = await User.findById(creatorId)
     const project = new Project ({
         name,
         details,
         users,
-        bugs
+        bugs,
+        creatorId
     })
     const savedProject = await project.save()
+    console.log(creator)
+    //Adding project to creator
+    creator.projects = creator.projects.concat(savedProject._id)
+    await creator.save()
     res.json(savedProject)
 })
 

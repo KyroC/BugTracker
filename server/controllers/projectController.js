@@ -9,9 +9,10 @@ projectRouter.get('/', async (req,res) => {
 })
 
 projectRouter.post('/',async (req,res) => {
-    const {name, users, bugs} = req.body
+    const {name, details, users, bugs} = req.body
     const project = new Project ({
         name,
+        details,
         users,
         bugs
     })

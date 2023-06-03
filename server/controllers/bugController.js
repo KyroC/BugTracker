@@ -13,9 +13,13 @@ bugRouter.post('/', async(req,res) => {
 
     const bug = new Bug ({
         name: body.name,
-        description: body.description,
+        detail: body.detail,
         creator: body.creator,
-        assignedTo: body.assignedTo
+        users: body.users,
+        project: body.project,
+        priority: body.priority,
+        status: body.status,
+        type: body.type
     })
     const savedBug = await bug.save()
     res.json(savedBug)

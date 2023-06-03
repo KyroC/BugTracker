@@ -9,14 +9,18 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    users: {
+    users: [{
         type: mongoose.Schema.Types.ObjectId,
         ref:"User"
-    },
+    }],
     bugs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref:"Bug"
-    }]
+    }],
+    creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    }
 })
 
 const Project = mongoose.model('Project',projectSchema)

@@ -6,6 +6,7 @@ const Bug = require('../models/bugModel')
 
 usersRouter.get('/', async(req,res) => {
     const users = await User.find({})
+    .populate('projects')
     res.json(users)
 })
 

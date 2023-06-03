@@ -5,7 +5,7 @@ const bugSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
+    detail: {
         type: String,
         required: true
     },
@@ -13,9 +13,25 @@ const bugSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    assignedTo: {
+    users: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
+    },
+    project: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project"
+    },
+    priority:{
+        type: String,
+        required: true
+    },
+    status: {
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
     }
 })
 

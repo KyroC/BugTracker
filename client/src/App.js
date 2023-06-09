@@ -3,13 +3,12 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Topbar from './components/Topbar'
 import Navbar from "./components/Navbar"
 import Home from "./pages/home"
-import Projects from "./pages/projects"
+import ProjectDetails from "./pages/projectDetails"
+import Projects from "./pages/projects.js"
 import Bugs from "./pages/bugs"
 import loginService from './services/login'
 import projectService from './services/projectService'
 import './App.css'
-
-
 
 
 const App = () => {
@@ -25,12 +24,11 @@ const App = () => {
       setUser(user)
       projectService.setToken(user.token)
     }
-  })
+  }, [])
 
 
   const handleLogin = async (event) => {
     event.preventDefault()
-
     try {
       const user = await loginService.login({
         email,password
@@ -85,7 +83,8 @@ const App = () => {
           <div className="page">
               <Routes >
                 <Route exact path="/" element={<Home />} />
-                <Route path="/projects" element={<Projects />} />
+                <Route path="/project/:id" element={<ProjectDetails />} />
+                <Route path="/projects" element={< Projects/>} />
                 <Route path="/bugs" element={<Bugs />} />
               </Routes>
           </div>

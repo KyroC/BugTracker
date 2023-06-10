@@ -6,6 +6,11 @@ let token = null
 const setToken = newToken => {
     token =`Bearer ${newToken}`
 }
+const getAll = () => {
+    const request = axios.get(baseUrl)
+    return request.then(response => response.data)
+
+  }
 
 const create = async newObject => {
     const config = {
@@ -16,4 +21,4 @@ const create = async newObject => {
 
 }
 
-export default {setToken, create}
+export default {setToken, create, getAll}

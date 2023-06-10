@@ -1,6 +1,6 @@
 const User = require('../models/userModel')
 
-exports. signupGetController = (req,res,next) => {
+exports.signupGetController = (req,res,next) => {
     res.status(200).render('pages/auth/signup', {
         title: 'Register Your Account' ,
         error : {},

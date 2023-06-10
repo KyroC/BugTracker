@@ -2,7 +2,7 @@ import "./projectDetails.css"
 import Bugcard from "../components/Bugcard"
 
 let statuses = ["To Do", "In Progress", "To Review", "Completed"]
-//sample data
+//sample data - update to axios.get based on ID
 let bugs = [{
     status: "To Do",
     title: "bug1",
@@ -51,6 +51,7 @@ let bugs = [{
     team: "Developers",
     comment: 5,
 }]
+//Update to add bugs based on :id
 const ProjectDisplay = () => {
     return(statuses.map(status => 
     <div className="bug-card">

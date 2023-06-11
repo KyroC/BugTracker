@@ -1,0 +1,28 @@
+.projectTable {
+    display:inline-grid;
+}
+.projects {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    border: 1px black solid;
+    width: calc(100vw - 200px);
+    justify-content: space-between;
+    align-items: stretch;
+}
+.project-name {
+    border: 1px black solid;
+}
+.project-details {
+    align-self:left;
+    border: 1px black solid;
+}
+.project-menu ul {
+    list-style-type:none;
+}
+.project-menu ul {
+    display:flex;
+    flex-direction: column;
+}
+.project-menu li a {
+
+}

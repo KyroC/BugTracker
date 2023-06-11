@@ -19,16 +19,15 @@ const Navbar = () => {
                         <Link to="/Projects">My Projects</Link>
                     </li>
                     <li>
-                        <Link to ="">Manage Role Assignments</Link>
+                        <Link to ="Bugs">My Tickets</Link>
                     </li>
                     <li>Manage Project Users</li>
-                    
                     <li>My Tickets</li>
                     <li>User Profile</li>
                 </ul>
             </div>
-            <div className="navbar-bottom">Nav-bottom/Footer
-            
+            <div className="navbar-bottom">
+                Nav-bottom/Footer
             </div>
         </div>
     )

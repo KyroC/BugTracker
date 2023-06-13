@@ -1,15 +1,18 @@
 import './projectTable.css'
+import { Link } from 'react-router-dom'
 
 const ProjectTable = ({projects}) => {
     return (
         <div className="projectTable">
         {projects.map((project) => (
                 <div className="projects" key={project.id}>
-                    <div className="project-name">{project.name}</div>
+                    <div className="project-name">
+                        <Link to={project._id}>{project.name}</Link>
+                    </div>
                     <div className="project-details">{project.details}</div>
                     <div className="project-menu">
                         <ul>
-                            <li><a href="edit-project">Edit Details</a></li>
+                            <li><Link to={project._id + "/edit"}>Edit Details</Link></li>
                             <li><a href="manage-project-users">Manage Users</a></li>
                         </ul>
                     </div>

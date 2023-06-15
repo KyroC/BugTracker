@@ -67,8 +67,12 @@ const ProjectDisplay = () => {
 
 const ProjectDetails = () => {
     return(
-        <div className="bug-grid">
-            <ProjectDisplay />
+        <div className="project-grid">
+            <div className="project-details">1</div>
+            <div className="project-users">2</div>
+            <div className="project-bugs">
+                <ProjectDisplay />
+            </div>
         </div>
     )
 }

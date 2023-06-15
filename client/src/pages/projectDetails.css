@@ -1,8 +1,11 @@
-.bug-grid{
+.project-grid{
     display:grid;
     height:100%;
     width:100%;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template:
+    "a a a" auto
+    "b c c" auto
+    "b c c" auto;
     justify-content: space-between;
     justify-items:center;
 }

@@ -1,7 +1,6 @@
 import "./projectDetails.css"
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import Bugcard from "../components/Bugcard"
 import projectService from '../services/projectService.js'
 
 //Note - 2 ways of getting data, passing state and useLocation or axios.get
@@ -16,7 +15,6 @@ let projects = (id) =>{
 const ProjectDetails = () => {
     const { id } = useParams() 
     const [projectsArray, setProjectsArray] = useState([])
-    const [filteredArray, setFilteredArray] = useState([])
     useEffect(() => {
         projects(id)
         .then(res => {

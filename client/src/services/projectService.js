@@ -11,6 +11,10 @@ const getAll = () => {
     return request.then(response => response.data)
 
   }
+const getProject = (id) => {
+    const request = axios.get(baseUrl + "/" + id)
+    return request.then(response => response.data)
+}
 
 const create = async newObject => {
     const config = {
@@ -21,4 +25,5 @@ const create = async newObject => {
 
 }
 
-export default {setToken, create, getAll}
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {setToken, create, getAll, getProject}

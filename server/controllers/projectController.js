@@ -17,6 +17,11 @@ projectRouter.get('/', async (req,res) => {
     res.json(projects)
 })
 
+projectRouter.get('/:projectId', async(req,res) => {
+    const project = await Project.findOne({"_id":req.params.projectId})
+    res.json(project)
+})
+
 projectRouter.post('/',async (req,res) => {
     const {name, details, users, bugs, creatorId} = req.body
     //decode user token

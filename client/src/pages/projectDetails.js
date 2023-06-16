@@ -1,77 +1,44 @@
 import "./projectDetails.css"
+import {useState, useEffect} from 'react'
+import {useParams} from 'react-router-dom'
 import Bugcard from "../components/Bugcard"
+import projectService from '../services/projectService.js'
 
-let statuses = ["To Do", "In Progress", "To Review", "Completed"]
+//Note - 2 ways of getting data, passing state and useLocation or axios.get
+//Axios get chosen due to refreshing of data when edition project details
 //sample data - update to axios.get based on ID
-let bugs = [{
-    status: "To Do",
-    title: "bug1",
-    author: "author1",
-    description: "description1",
-    team: "UI",
-    comment: 5,
-},
-{
-    status: "In Progress",
-    title: "bug2",
-    author: "author2",
-    description: "description2",
-    team: "UI",
-    comment: 4,
-},
-{
-    status: "To Review",
-    title: "bug3",
-    author: "author3",
-    description: "description3",
-    team: "UI",
-    comment: 5,
-},
-{
-    status: "Completed",
-    title: "bug4",
-    author: "author4",
-    description: "description4",
-    team: "UI",
-    comment: 5,
-},
-{
-    status: "To Do",
-    title: "bug5",
-    author: "author5",
-    description: "description5",
-    team: "UI",
-    comment: 5,
-},
-{
-    status: "To Do",
-    title: "bug6",
-    author: "author6",
-    description: "description6",
-    team: "Developers",
-    comment: 5,
-}]
-//Update to add bugs based on :id
-const ProjectDisplay = () => {
-    return(statuses.map(status => 
-    <div className="bug-card">
-        <div className="bug-status">
-            <h2>{status}</h2>
-            <button>Add New</button>
-            </div> 
-        <Bugcard bugs={bugs.filter(bug => bug.status === status)} />
-    </div>)
-    )
-}
- 
+
+
+let projects = (id) =>{
+    return projectService.getProject(id)
+} 
 
 const ProjectDetails = () => {
+    const { id } = useParams() 
+    const [projectsArray, setProjectsArray] = useState([])
+    const [filteredArray, setFilteredArray] = useState([])
+    useEffect(() => {
+        projects(id)
+        .then(res => {
+            setProjectsArray(res)
+        })
+    },[])
+    console.log(projectsArray)
+    
+    
     return(
         <div className="project-grid">
-            <div className="project-details">1</div>
-            <div className="project-users">2</div>
-            <div className="project-bugs">
-                <ProjectDisplay />
+            <div className="project-grid-details box1">
+                <div className="project-grid-title box-a1">Details for project #1</div>
+                <div className="project-grid-name box-a2">Project Name</div>
+                <div className="project-grid-description a3">Project Description</div>
+            </div>
+            <div className="project-users box2">
+                <div className="project-users-title">Assigned Personnel</div>
+                <div className="project-users-table">Table</div>
+            </div>
+            <div className="project-bugs box3">
+                <div>hi</div>
             </div>
         </div>
     )

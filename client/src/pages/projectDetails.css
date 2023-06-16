@@ -1,11 +1,57 @@
 .project-grid{
     display:grid;
-    height:100%;
-    width:100%;
-    grid-template:
-    "a a a" auto
-    "b c c" auto
-    "b c c" auto;
+    grid-template-areas:
+    "a a a" 
+    "b c c" 
+    "b c c"; 
+    background-color:lightgrey;
     justify-content: space-between;
-    justify-items:center;
+    justify-items:stretch;
+    margin: 20px 10px 20px 10px;
+    max-height: calc(100vh - 120px);
+    height: calc(100vh - 200px);
+}
+.box1 {
+    grid-area: a;
+    background-color:white;
+}
+.box2 {
+    grid-area: b;
+    background-color: white;
+}
+.box3 {
+    grid-area: c;
+    background-color:white;
+}
+.project-grid-details {
+    display:grid;
+    grid-template:
+    "aa aa"
+    "ab ac"
+    "ab ac" ;
+    min-height:15vw;
+    min-width: 80%;
+    margin: 20px 10px 0px 10px;
+}
+.box-a1 {
+    grid-area: aa;
+}
+
+.box-a2 {
+    grid-area: ab;
+}
+
+.box-a3 {
+    grid-area: ac;
+}
+.project-grid-title {
+    position: relative;
+    bottom: 5px;
+    background-color: orange;
+    margin: 0px 20px 0px 20px;
+    padding: 10px 0px 10px 0px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.project-users {
+    display: grid;
 }

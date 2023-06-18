@@ -43,19 +43,18 @@ const ProjectDetails = () => {
                 <div className="project-users-title">
                     <div>Assigned Personnel</div>
                 </div>
-                {projectArray.users.map((user)=> (
+                {projectArray.users?.map((user)=> (
                     <div className="project-users-table">
-                        <div>{user}</div>
+                        <div>{user.name}</div>
                         </div> 
                         ))}
             </div>
             <div className="project-bugs box3">
                 <div className="project-bugs-title">Tickets/Bugs for this project</div>
-            {projectArray.bugs.map((bug)=> (
+            {projectArray.bugs?.map((bug)=> (
                 <div className="projects-bugs-table">
-                    <div>{bug}</div>
+                    <div>{bug.name}</div>
                 </div>
-                    
                 
             ))}
         </div>

@@ -19,7 +19,10 @@ projectRouter.get('/', async (req,res) => {
 
 projectRouter.get('/:projectId', async(req,res) => {
     const project = await Project.findOne({"_id":req.params.projectId})
+    .populate('users')
+    .populate('bugs')
     res.json(project)
+    
 })
 
 projectRouter.post('/',async (req,res) => {

@@ -52,7 +52,21 @@ projectRouter.post('/',async (req,res) => {
 
 projectRouter.delete('/:projectId', async(req,res) => {
     const project = await Project.findOneAndDelete({"_id":req.params.projectId})
-    .then(() => res.json("Post deleted!"))
+    .then(() => res.json("Project deleted!"))
+    .catch((err) => res.status(400).json("Error: " + err))
+})
+projectRouter.put('/:projectId', async(req,res) => {
+    let params = {
+        name: req.body.name,
+        details: req.body.details,
+        users: req.body.users,
+        bugs: req.body.bugs,
+    }
+    for(let prop in params) if(!params[prop]) delete params[prop]
+    console.log(params)
+
+    const project = await Project.findOneAndUpdate({"_id": req.params.projectId},params)
+    .then(() => res.json(params))
     .catch((err) => res.status(400).json("Error: " + err))
 })
 

@@ -22,7 +22,6 @@ projectRouter.get('/:projectId', async(req,res) => {
     .populate('users')
     .populate('bugs')
     res.json(project)
-    
 })
 
 projectRouter.post('/',async (req,res) => {
@@ -49,6 +48,12 @@ projectRouter.post('/',async (req,res) => {
     creator.projects = creator.projects.concat(savedProject._id)
     await creator.save()
     res.json(savedProject)
+})
+
+projectRouter.delete('/:projectId', async(req,res) => {
+    const project = await Project.findOneAndDelete({"_id":req.params.projectId})
+    .then(() => res.json("Post deleted!"))
+    .catch((err) => res.status(400).json("Error: " + err))
 })
 
 module.exports = projectRouter

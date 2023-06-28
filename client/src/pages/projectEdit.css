@@ -1,0 +1,10 @@
+.assigned-user-details {
+   display: grid; 
+   grid-template-columns: 1fr 1fr 1fr;
+   border-color: black;
+   border: solid;
+}
+.assigned-user-details-data {
+    border-color: black;
+    border: solid;
+}

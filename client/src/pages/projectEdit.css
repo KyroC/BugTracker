@@ -5,6 +5,7 @@
    border: solid;
 }
 .assigned-user-details-data {
+    display:flex;
     border-color: black;
     border: solid;
 }

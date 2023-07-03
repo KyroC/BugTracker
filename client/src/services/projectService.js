@@ -1,5 +1,6 @@
 import axios from 'axios'
 const baseUrl = '/api/projects'
+const userUrl = '/api/users'
 
 let token = null
 
@@ -15,6 +16,17 @@ const getProject = (id) => {
     const request = axios.get(baseUrl + "/" + id)
     return request.then(response => response.data)
 }
+const getUser = () => {
+    const request = axios.get(userUrl)
+    return request.then(response => response.data)
+    
+}
+const addProjectUser = (projectId, assignUser) => {
+    const res = axios.put(baseUrl + "/" + projectId + "/addUsers", {
+        "userId": assignUser
+    })
+    return res.then(response=> response.data)
+}
 
 const create = async newObject => {
     const config = {
@@ -26,4 +38,4 @@ const create = async newObject => {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {setToken, create, getAll, getProject}
+export default {setToken, create, getAll, getProject, getUser, addProjectUser}

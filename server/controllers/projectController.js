@@ -69,5 +69,17 @@ projectRouter.put('/:projectId', async(req,res) => {
     .then(() => res.json(params))
     .catch((err) => res.status(400).json("Error: " + err))
 })
+projectRouter.put('/:projectId/addUsers', async(req,res) => {
+    const project = await Project.findOneAndUpdate(
+        {"_id":req.params.projectId},
+        {
+            $addToSet:{
+                users: req.body.userId 
+            }
+        })
+        .then(() => res.json("User successfully assigned"))
+        .catch((err) => res.status(400).json("error: " + err))
+})
+
 
 module.exports = projectRouter

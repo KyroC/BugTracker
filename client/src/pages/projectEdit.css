@@ -1,6 +1,6 @@
 .assigned-user-details {
    display: grid; 
-   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
    border-color: black;
    border: solid;
 }

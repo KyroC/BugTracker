@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import projectService from '../services/projectService'
 import ProjectTable from '../components/projectTable'
 import ProjectTableSearch from '../components/projectTableSearch'
@@ -33,7 +34,9 @@ const Projects = () => {
         <div className="projects-page">
             Project Details
             <div className="new-project">
-                <button>New Project</button>
+                <Link to="/projects/new">
+                    <button>New Project</button>
+                </Link>
             </div>
             <div className="projects-container">
                 <div className="project-container-title">Projects</div>

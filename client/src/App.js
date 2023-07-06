@@ -8,6 +8,8 @@ import Projects from "./pages/projects.js"
 import Bugs from "./pages/bugs"
 import loginService from './services/login'
 import projectService from './services/projectService'
+import ProjectEdit from "./pages/projectEdit"
+import ProjectNew from "./pages/projectNew"
 import './App.css'
 
 
@@ -86,6 +88,8 @@ const App = () => {
                 <Route exact path="/projects" element={< Projects/>} />
                 <Route path="/projects/:id" element={<ProjectDetails />} />
                 <Route path="/bugs" element={<Bugs />} />
+                <Route path="/projects/:id/edit" element={<ProjectEdit />} />
+                <Route path="/projects/new" element={< ProjectNew/>} />
               </Routes>
           </div>
         </div>

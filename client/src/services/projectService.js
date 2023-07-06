@@ -27,7 +27,15 @@ const addProjectUser = (projectId, assignUser) => {
     })
     return res.then(response=> response.data)
 }
-
+const deleteProjectUser = (projectId, deleteUser) => {
+    const res = axios.delete(baseUrl + "/" + projectId + "/deleteUsers", {
+        data: {"userId": deleteUser}
+    })
+    return res.then(response=> response.data)
+}
+const deleteProject = (projectId) => {
+    const res = axios.delete(baseUrl + "/" + projectId)
+}
 const create = async newObject => {
     const config = {
         headers: { Authorization: token},
@@ -38,4 +46,4 @@ const create = async newObject => {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {setToken, create, getAll, getProject, getUser, addProjectUser}
+export default {setToken, create, getAll, getProject, getUser, addProjectUser, deleteProjectUser, deleteProject}

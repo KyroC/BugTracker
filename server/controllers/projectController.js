@@ -80,6 +80,18 @@ projectRouter.put('/:projectId/addUsers', async(req,res) => {
         .then(() => res.json("User successfully assigned"))
         .catch((err) => res.status(400).json("error: " + err))
 })
+projectRouter.put('/:projectId/addBugs', async(req,res) => {
+    const project = await Project.findOneAndUpdate(
+        {"_id":req.params.projectId},
+        {
+            $addToSet:{
+                bugs:req.body.bugId
+            }
+        }
+    )
+    .then(() => res.json("Ticket successfully created"))
+    .catch((err) => res.status(400).json("error: " + err))
+})
 projectRouter.delete('/:projectId/deleteUsers', async(req,res) => {
     const project = await Project.findOneAndUpdate(
         {"_id":req.params.projectId},

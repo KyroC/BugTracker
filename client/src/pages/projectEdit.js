@@ -10,6 +10,7 @@ let projects = (id) => {
 let users = () => {
     return projectService.getUser()
 }
+
 const ProjectEdit = () => {
     const [projectArray, setProjectArray] = useState([])
     const [userArray, setUserArray] = useState([])
@@ -41,23 +42,38 @@ const ProjectEdit = () => {
                 <div>Assign Users</div>
                 <RoleForm userArray={userArray} projectId={id}/>
                 <div>Current Assigned</div>
-                {projectArray.users?.map((user)=> ( 
-                    <div className="assigned-user-details">
-                        <div className="assigned-user-details-data">{user.name}</div>
-                        <div className="assigned-user-details-data">{user.email}</div>
-                        <div className="assigned-user-details-data"> {user.role}</div>
-                        <div 
-                        className="assigned-user-details-delete">
-                            <button value={user.id} onClick={handleDelete}>Delete</button>
+                <div className="assigned-user-details-wrapper">
+                    {projectArray.users?.map((user)=> ( 
+                        <div className="assigned-user-details">
+                            <div className="assigned-user-details-data">{user.name}</div>
+                            <div className="assigned-user-details-data">{user.email}</div>
+                            <div className="assigned-user-details-data"> {user.role}</div>
+                            <div 
+                            className="assigned-user-details-delete">
+                                <button value={user.id} onClick={handleDelete}>Delete</button>
+                            </div>
                         </div>
+                    ))}
+                 </div>
+                 <div className="Current Tickets">
+                    <div>Current Tickets</div>
+                    <div className="ticket-table-wrapper">
+                        {projectArray.bugs?.map((bug) => (
+                            <div className="ticket-table">
+                                <div className="ticket-name">{bug.name}</div>
+                                <div className="ticket-detail">{bug.detail}</div>
+                                <div className="ticket-status">{bug.status}</div>
+                                <div className="ticket-priority">{bug.priority}</div>
+                            </div>
+                        ))}
                     </div>
-                 ))}
-                <div>
+                 </div>
+            </div>
+            <div>
                     <Link to="/projects">
                         <button onClick={handleProjectDelete}>Delete Project</button>
                     </Link>
                 </div>
-            </div>
         </div>
     )
 }

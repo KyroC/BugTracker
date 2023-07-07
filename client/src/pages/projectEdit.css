@@ -1,11 +1,28 @@
+.assigned-user-details-wrapper {
+    border-top: solid 1px black;
+    border-left: solid 1px black;
+}
 .assigned-user-details {
    display: grid; 
    grid-template-columns: 1fr 1fr 1fr 1fr;
-   border-color: black;
-   border: solid;
+   
+}
+.assigned-user-details > * {
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
 }
 .assigned-user-details-data {
     display:flex;
-    border-color: black;
-    border: solid;
+}
+.ticket-table-wrapper {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+.ticket-table {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.ticket-table > * {
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
 }

@@ -11,6 +11,11 @@
     border-bottom: solid 1px black;
     border-right: solid 1px black;
 }
+.assigned-user-header {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 .assigned-user-details-data {
     display:flex;
 }
@@ -18,11 +23,16 @@
     border-top: 1px solid black;
     border-left: 1px solid black;
 }
-.ticket-table {
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+.ticket-data-header {
+    display:flex;
+    justify-content: center;
+    align-items:center;
 }
-.ticket-table > * {
+.ticket-data {
+    display:grid;
+    grid-template-columns: 2fr 3fr 1fr 1fr;
+}
+.ticket-data > * {
     border-bottom: solid 1px black;
     border-right: solid 1px black;
 }

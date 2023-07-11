@@ -37,12 +37,18 @@ const ProjectEdit = () => {
     
     return(
         <div>
-            <div className="project-edit-title"><h2>Edit Project</h2></div>
+            <div className="project-edit-title"><b>Edit Project</b></div>
             <div>
                 <div>Assign Users</div>
                 <RoleForm userArray={userArray} projectId={id}/>
                 <div>Current Assigned</div>
                 <div className="assigned-user-details-wrapper">
+                    <div className="assigned-user-details">
+                        <div className="assigned-user-header"><b>Name</b></div>
+                        <div className="assigned-user-header"><b>Email</b></div>
+                        <div className="assigned-user-header"><b>Role</b></div>
+                        <div className="assigned-user-header"><b>Delete</b></div>
+                    </div>
                     {projectArray.users?.map((user)=> ( 
                         <div className="assigned-user-details">
                             <div className="assigned-user-details-data">{user.name}</div>
@@ -57,9 +63,20 @@ const ProjectEdit = () => {
                  </div>
                  <div className="Current Tickets">
                     <div>Current Tickets</div>
+                    <div>
+                        <Link to={"/projects/" + id + "/addTicket"}>
+                            <button>Add tickets</button>
+                        </Link>
+                    </div>
                     <div className="ticket-table-wrapper">
+                        <div className="ticket-data">
+                                <div className="ticket-data-header"><b>Ticket</b></div>
+                                <div className="ticket-data-header"><b>Detail</b></div>
+                                <div className="ticket-data-header"><b>Status</b></div>
+                                <div className="ticket-data-header"><b>Priority</b></div>
+                            </div>
                         {projectArray.bugs?.map((bug) => (
-                            <div className="ticket-table">
+                            <div className="ticket-data">
                                 <div className="ticket-name">{bug.name}</div>
                                 <div className="ticket-detail">{bug.detail}</div>
                                 <div className="ticket-status">{bug.status}</div>

@@ -16,7 +16,8 @@ const RoleForm = (props) => {
         console.log(event.target.value)
         setAssignRole(event.target.value)
     }
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault()
         console.log(props.projectId)
         console.log(assignUser)
         projectService.addProjectUser(props.projectId, assignUser)

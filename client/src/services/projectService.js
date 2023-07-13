@@ -19,13 +19,15 @@ const getProject = (id) => {
 const getUser = () => {
     const request = axios.get(userUrl)
     return request.then(response => response.data)
-    
 }
 const addProjectUser = (projectId, assignUser) => {
     const res = axios.put(baseUrl + "/" + projectId + "/addUsers", {
         "userId": assignUser
     })
-    return res.then(response=> response.data)
+    return res
+        .then(axios.put(userUrl + "/" + assignUser + "/addProject", {projectId}))
+        .then(res => res.data)
+        
 }
 const deleteProjectUser = (projectId, deleteUser) => {
     const res = axios.delete(baseUrl + "/" + projectId + "/deleteUsers", {

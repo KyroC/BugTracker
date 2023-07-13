@@ -10,6 +10,7 @@ import loginService from './services/login'
 import projectService from './services/projectService'
 import ProjectEdit from "./pages/projectEdit"
 import ProjectNew from "./pages/projectNew"
+import AddTicket from "./pages/addTicket"
 import './App.css'
 
 
@@ -90,6 +91,7 @@ const App = () => {
                 <Route path="/bugs" element={<Bugs />} />
                 <Route path="/projects/:id/edit" element={<ProjectEdit />} />
                 <Route path="/projects/new" element={< ProjectNew/>} />
+                <Route path="/projects/:id/addTicket" element = {<AddTicket/>} />
               </Routes>
           </div>
         </div>

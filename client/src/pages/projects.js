@@ -28,6 +28,7 @@ const Projects = () => {
         console.log(searchValue)
         setFilteredArray(
             projectsArray?.filter(project => project.name.includes(searchValue)))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[searchValue])
 
     return (

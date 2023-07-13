@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import projectService from '../services/projectService.js'
 import bugService from '../services/bugService'
@@ -6,8 +6,8 @@ import bugService from '../services/bugService'
 const AddTicket = () => {
     const [ticketName, setTicketName] = useState("")
     const [ticketDetails, setTicketDetails] = useState("")
-    const [ticketPriority, setTicketPriority] = useState("")
-    const [ticketStatus, setTicketStatus] = useState("")
+    const [ticketPriority, setTicketPriority] = useState("High")
+    const [ticketStatus, setTicketStatus] = useState("Open")
     const { id }= useParams()
 
     const handleTicketName = (event) => {
@@ -26,8 +26,7 @@ const AddTicket = () => {
         event.preventDefault()
         setTicketStatus(event.target.value)
     }
-    const handleTicketSubmit = (event) => {
-        event.preventDefault()
+    const handleTicketSubmit = () => {
         let ticketObj = {
             name: ticketName,
             detail: ticketDetails,
@@ -65,7 +64,9 @@ const AddTicket = () => {
                             <option value="Solved">Solved</option>
                         </select> < br />
                     </label>
-                    <button onClick={handleTicketSubmit}>Create Ticket</button>
+                    <Link to={"/projects/" + id + "/edit"}>
+                        <button onClick={handleTicketSubmit}>Create Ticket</button>
+                    </Link>
                 </form>
             </div>
         </div>

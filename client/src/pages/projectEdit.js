@@ -74,6 +74,7 @@ const ProjectEdit = () => {
                                 <div className="ticket-data-header"><b>Detail</b></div>
                                 <div className="ticket-data-header"><b>Status</b></div>
                                 <div className="ticket-data-header"><b>Priority</b></div>
+                                <div className="ticket-data-header>"><b>Actions</b></div>
                             </div>
                         {projectArray.bugs?.map((bug) => (
                             <div className="ticket-data">
@@ -81,6 +82,11 @@ const ProjectEdit = () => {
                                 <div className="ticket-detail">{bug.detail}</div>
                                 <div className="ticket-status">{bug.status}</div>
                                 <div className="ticket-priority">{bug.priority}</div>
+                                <div className="ticket-actions">
+                                    <Link to={"/bug/" + bug._id}>
+                                        <button>Edit Ticket</button>
+                                    </Link>
+                                </div>
                             </div>
                         ))}
                     </div>

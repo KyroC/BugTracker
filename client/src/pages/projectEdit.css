@@ -30,7 +30,7 @@
 }
 .ticket-data {
     display:grid;
-    grid-template-columns: 2fr 3fr 1fr 1fr;
+    grid-template-columns: 2fr 3fr 1fr 1fr 1fr;
 }
 .ticket-data > * {
     border-bottom: solid 1px black;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import projectService from '../services/projectService.js'
+import bugService from '../services/bugService'
 
 let projects = (id) => {
     return projectService.getProject(id)
@@ -11,6 +12,7 @@ const AddTicket = () => {
     const [ticketDetails, setTicketDetails] = useState("")
     const [ticketPriority, setTicketPriority] = useState("")
     const [ticketStatus, setTicketStatus] = useState("")
+    const { id }= useParams()
 
     const handleTicketName = (event) => {
         event.preventDefault()
@@ -26,15 +28,20 @@ const AddTicket = () => {
     }
     const handleTicketStatus = (event) => {
         event.preventDefault()
-        setTicketPriority(event.target.value)
+        setTicketStatus(event.target.value)
     }
-    const handleTicketSubmit = () => {
+    const handleTicketSubmit = (event) => {
+        event.preventDefault()
         let ticketObj = {
             name: ticketName,
-            details: ticketDetails,
+            detail: ticketDetails,
             priority: ticketPriority,
-            status: ticketStatus 
+            status: ticketStatus,
+            type: "UI"
         }
+        bugService.addBug(ticketObj)
+            .then(res => projectService.addTicket(id,res._id))
+        
     }
 
     return (
@@ -50,14 +57,14 @@ const AddTicket = () => {
                     </label>
                     <label>Priority:
                         <select onChange={handleTicketPriority}> 
-                            <option value="High"> High </option>
+                            <option value="High" selected> High </option>
                             <option value="Medium"> Medium </option>
                             <option value="low"> Low </option>
                         </select> <br />
                     </label>
                     <label> Status:
                         <select onChange={handleTicketStatus}>
-                            <option value="Open">Open</option>
+                            <option value="Open" selected>Open</option>
                             <option value="Worked on">Worked on</option>
                             <option value="Solved">Solved</option>
                         </select> < br />

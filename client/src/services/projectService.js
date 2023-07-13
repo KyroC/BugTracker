@@ -34,6 +34,7 @@ const deleteProjectUser = (projectId, deleteUser) => {
     return res.then(response=> response.data)
 }
 const deleteProject = (projectId) => {
+    // eslint-disable-next-line no-unused-vars
     const res = axios.delete(baseUrl + "/" + projectId)
 }
 const addTicket = (projectId, bugId) => {

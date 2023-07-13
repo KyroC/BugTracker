@@ -29,4 +29,17 @@ usersRouter.post('/', async(req,res) => {
     res.status(201).json(savedUser)
 })
 
+usersRouter.put('/:userId/addProject', async(req, res) => {
+    const user = await User.findOneAndUpdate(
+        {"_id": req.params.userId},
+        {
+            $addToSet: {
+                projects: req.body.projectId
+            }
+        }
+    )
+    .then(res.json("Project successfully added to user"))
+    .catch((err) => res.status(400).json("error: " + err))
+})
+
 module.exports = usersRouter

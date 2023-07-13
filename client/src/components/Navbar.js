@@ -21,9 +21,6 @@ const Navbar = () => {
                     <li>
                         <Link to ="Bugs">My Tickets</Link>
                     </li>
-                    <li>Manage Project Users</li>
-                    <li>My Tickets</li>
-                    <li>User Profile</li>
                 </ul>
             </div>
             <div className="navbar-bottom">

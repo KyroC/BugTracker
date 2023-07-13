@@ -1,6 +1,11 @@
+import { Link } from 'react-router-dom'
 import './Topbar.css';
+const onLogoutClick = () => {
+    localStorage.clear()
+}
 
 const Topbar = () => {
+   
     return(
         <div className="topbar">
             <div className="topbar-left">Logged in as: test</div>
@@ -9,7 +14,11 @@ const Topbar = () => {
                     <li>Search</li>
                     <li>Notifications</li>
                     <li>User settings</li>
-                    <li><button>Log Out</button></li>
+                    <li>
+                        <Link to="/">
+                            <button onClick={onLogoutClick}>Log Out</button>
+                        </Link >
+                    </li>
                 </ul>
             </div>
     </div>

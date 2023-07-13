@@ -9,6 +9,7 @@ const Topbar = () => {
                     <li>Search</li>
                     <li>Notifications</li>
                     <li>User settings</li>
+                    <li><button>Log Out</button></li>
                 </ul>
             </div>
     </div>

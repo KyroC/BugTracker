@@ -3,10 +3,6 @@ import { useParams, Link } from 'react-router-dom'
 import projectService from '../services/projectService.js'
 import bugService from '../services/bugService'
 
-let projects = (id) => {
-    return projectService.getProject(id)
-}
-
 const AddTicket = () => {
     const [ticketName, setTicketName] = useState("")
     const [ticketDetails, setTicketDetails] = useState("")

@@ -18,9 +18,11 @@ const RoleForm = (props) => {
     }
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(props.projectId)
-        console.log(assignUser)
         projectService.addProjectUser(props.projectId, assignUser)
+        props.projects(props.projectId).then(res => {
+            props.setProjectArray(res)
+        }
+        )
     }
     return (
         <div className="all-user-details">

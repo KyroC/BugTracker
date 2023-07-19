@@ -17,6 +17,9 @@ const ProjectEdit = () => {
     const { id } = useParams()
     const handleDelete = (event) => {
         projectService.deleteProjectUser(id, event.target.value)
+        projects(id).then(res => {
+            setProjectArray(res)
+        })
     }
     const handleProjectDelete = () => {
         projectService.deleteProject(id)
@@ -40,7 +43,7 @@ const ProjectEdit = () => {
             <div className="project-edit-title"><b>Edit Project</b></div>
             <div>
                 <div>Assign Users</div>
-                <RoleForm userArray={userArray} projectId={id}/>
+                <RoleForm userArray={userArray} projectArray={projectArray} setProjectArray={setProjectArray} projectId={id} projects={projects}/>
                 <div>Current Assigned</div>
                 <div className="assigned-user-details-wrapper">
                     <div className="assigned-user-details">

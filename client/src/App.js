@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Topbar from './components/Topbar'
 import Navbar from "./components/Navbar"
 import Home from "./pages/home"
+import LoginForm from './components/loginForm'
 import ProjectDetails from "./pages/projectDetails"
 import Projects from "./pages/projects.js"
 import Bugs from "./pages/bugs"
@@ -11,6 +12,7 @@ import projectService from './services/projectService'
 import ProjectEdit from "./pages/projectEdit"
 import ProjectNew from "./pages/projectNew"
 import AddTicket from "./pages/addTicket"
+import BugDetail from './pages/bugDetails'
 import './App.css'
 
 
@@ -30,9 +32,11 @@ const App = () => {
   }, [])
 
 
-  const handleLogin = async (event) => {
+  const handleLogin = async(event) => {
     event.preventDefault()
-    try {
+    console.log(email)
+    console.log(password)
+      try {
       const user = await loginService.login({
         email,password
       })
@@ -52,29 +56,7 @@ const App = () => {
     }
     console.log("Logging in with", email, password)
   }
-  const loginForm = () => (
-  <div className="login-form">
-    <form onSubmit={handleLogin}>
-    <div>
-      Email
-      <input 
-      type="text"
-      value={email}
-      name="Email"
-      onChange= {({target}) => setEmail(target.value)}/>
-    </div>
-    <div>
-      password
-      <input
-      type="text"
-      value={password}
-      name="Password"
-      onChange= {({target}) => setPassword(target.value)} />
-    </div>
-    <button type="submit">login</button>
-  </form>
-</div>
-  )
+  
 
 
   const mainApp = (e) => (
@@ -89,6 +71,7 @@ const App = () => {
                 <Route exact path="/projects" element={< Projects/>} />
                 <Route path="/projects/:id" element={<ProjectDetails />} />
                 <Route path="/bugs" element={<Bugs />} />
+                <Route path="/bug/:id" element={<BugDetail />} />
                 <Route path="/projects/:id/edit" element={<ProjectEdit />} />
                 <Route path="/projects/new" element={< ProjectNew/>} />
                 <Route path="/projects/:id/addTicket" element = {<AddTicket/>} />
@@ -101,7 +84,7 @@ const App = () => {
 
   return(
     <div className="app">
-      {user === null && loginForm()}
+      {user === null && <LoginForm email={email} handleLogin={handleLogin} setEmail={setEmail} password={password} setPassword={setPassword}/>}
       {user !== null && mainApp()}
     </div>     
 )

@@ -33,14 +33,13 @@ projectRouter.post('/',async (req,res) => {
     }
     //get user by decoded ID
     const user = await User.findById(decodedToken.id)
-
     const creator = await User.findById(creatorId)
     const project = new Project ({
         name,
         details,
         users,
         bugs,
-        creatorId
+        creator: creatorId
     })
     const savedProject = await project.save()
     console.log(creator)

@@ -54,7 +54,7 @@ const AddTicket = () => {
                         <select onChange={handleTicketPriority}> 
                             <option value="High" selected> High </option>
                             <option value="Medium"> Medium </option>
-                            <option value="low"> Low </option>
+                            <option value="Low"> Low </option>
                         </select> <br />
                     </label>
                     <label> Status:

@@ -33,12 +33,14 @@ const RoleForm = (props) => {
                                 <option className="all-user-details-name" value={user.id}>{user.name}</option>
                         ))}
                         </select>
+                        {/* disabling select role function as roles are admin side 
                         <select name="roles" id="roles" className="all-user-roles-dropdown"
                         required size="3" onChange={handleChangeRole}>
                             <option value="Developer">Developer</option>
                             <option value="UI/UX">UI/UX</option>
                             <option value="Admin">Admin</option>
                         </select>
+                        */}
                         <button type="submit" value="submit" onClick={handleSubmit}>Submit </button>
                     </form>
                 </div>

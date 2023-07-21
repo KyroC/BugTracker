@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Topbar from './components/Topbar'
 import Navbar from "./components/Navbar"
 import Home from "./pages/home"
-import LoginForm from './components/loginForm'
+import LoginForm from './components/LoginForm'
 import ProjectDetails from "./pages/projectDetails"
 import Projects from "./pages/projects.js"
 import Bugs from "./pages/bugs"

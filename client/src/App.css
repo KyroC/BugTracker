@@ -1,3 +1,24 @@
+* {
+    box-sizing: border-box
+}
+h1 {
+    font-weight: bold;
+    margin:0;
+}
+h2 { 
+    text-align:center;
+}
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+span {
+    font-size: 12px;
+}
 .app {
     height: 100vh;
 }

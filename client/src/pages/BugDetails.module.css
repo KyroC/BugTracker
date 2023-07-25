@@ -1,0 +1,20 @@
+.ticketDetailsPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   
+}
+.ticketDetailsGrid {
+
+}
+.ticketDetailsTable {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 30vh;
+
+}
+.ticketDetailsTitle {
+    background-color: orange;
+    position: relative;
+    margin: 0px 20px 0px 20px;
+    box-shadow:rgba(0,0,0,0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}   

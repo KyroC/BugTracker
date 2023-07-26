@@ -16,7 +16,7 @@ const BugDetail = () => {
             setTicketArray(res)
             console.log(res)
         })
-    },[])
+    },[id])
     return (
         <div className={styles.ticketDetailsPage}>
             <div className={styles.ticketDetailsGrid}>

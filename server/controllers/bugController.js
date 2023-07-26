@@ -10,6 +10,19 @@ bugRouter.get('/:id',async(req,res) => {
     const bug = await Bug.findOne({"_id":req.params.id})
     res.json(bug)
 })
+bugRouter.put('/:id/addComment', async(req,res) => {
+    const bug = await Bug.findOneAndUpdate(
+        {"_id":req.params.id},
+        {
+            $addToSet: {
+                "comments": req.body.comments
+            }
+        }
+        
+    )
+    .then(() => res.json("Comment successfully created"))
+    .catch((err) => res.status(400).json("error: " + err))
+})
 
 //Post request
 bugRouter.post('/', async(req,res) => {
@@ -23,7 +36,8 @@ bugRouter.post('/', async(req,res) => {
         project: body.project,
         priority: body.priority,
         status: body.status,
-        type: body.type
+        type: body.type,
+        comments: body.comments
     })
     const savedBug = await bug.save()
     res.json(savedBug)

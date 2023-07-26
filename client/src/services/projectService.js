@@ -33,7 +33,11 @@ const deleteProjectUser = (projectId, deleteUser) => {
     const res = axios.delete(baseUrl + "/" + projectId + "/deleteUsers", {
         data: {"userId": deleteUser}
     })
-    return res.then(response=> response.data)
+    return res
+        .then(axios.delete(userUrl + "/" + deleteUser + "/deleteProject", {
+            data:{"projectId": projectId}
+        }))
+        .then(res => res.data)
 }
 const deleteProject = (projectId) => {
     // eslint-disable-next-line no-unused-vars

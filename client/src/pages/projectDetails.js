@@ -21,8 +21,6 @@ const ProjectDetails = () => {
             setProjectArray(res)
         })
     },[id])
-    console.log(projectArray.users)
-    console.log(projectArray.bugs)
     
     
     return(

@@ -1,8 +1,22 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './BugDetails.module.css';
+import bugService from '../services/bugService';
+
+let ticket = (id) => {
+    return bugService.getTicket(id)
+}
 
 const BugDetail = () => {
+    const { id } = useParams()
+    const [ticketArray, setTicketArray] = useState([])
+    useEffect(() => {
+        ticket(id)
+        .then(res => {
+            setTicketArray(res)
+            console.log(res)
+        })
+    },[])
     return (
         <div className={styles.ticketDetailsPage}>
             <div className={styles.ticketDetailsGrid}>
@@ -10,29 +24,53 @@ const BugDetail = () => {
                     <h3>Details</h3>
                 </div>
                 <div className={styles.ticketDetailsTable}>
-                    <div className={styles.ticketDetailsItem}>Bug Name</div>
-                    <div className={styles.ticketDetailsItem}>Bug Description</div>
-                    <div className={styles.ticketDetailsItem}>Bug Priority</div>
-                    <div className={styles.ticketDetailsItem}>Bug Status</div>
-                    <div className={styles.ticketDetailsItem}>Submitter</div>
-                    <div className={styles.ticketDetailsItem}>Assigned personnel/currently worked on by</div>
+                    <div className={styles.ticketDetailsItem}>
+                        <h4>Ticket Name</h4>
+                        <div>{ticketArray.name}</div>
+                        </div>
+                    <div className={styles.ticketDetailsItem}>
+                        <h4>Bug Description</h4>
+                        <div>{ticketArray.detail}</div>    
+                    </div>
+                    <div className={styles.ticketDetailsItem}>
+                        <h4>Ticket Priority</h4>
+                        <div>{ticketArray.priority}</div>
+                    </div>
+                    <div className={styles.ticketDetailsItem}>
+                        <h4>Ticket Status</h4>
+                        <div>{ticketArray.status}</div>
+                    </div>
+                    <div className={styles.ticketDetailsItem}>
+                        <h4>Submitter</h4>
+                        <div>{ticketArray.creator}</div>
+                    </div>
+                    <div className={styles.ticketDetailsItem}>
+                        <h4>Assigned personnel</h4>
+                        <div>{ticketArray.users}</div>
+                    </div>
                 </div>
             </div>
             <div>
-                <h3>Comments</h3>
+                <div className={styles.ticketDetailsTitle}>
+                    <h3>Comments</h3>
+                </div>
                 <div>
                     <div>Comments table</div>
                     <button>Add Comment</button>
                 </div>
             </div>
             <div>
-                <h3>History</h3>
+                <div className={styles.ticketDetailsTitle}>
+                    <h3>History</h3>
+                </div>
                 <div>
                     History Table
                 </div>
             </div>
             <div>
-                <h3>Pictures</h3>
+                <div className={styles.ticketDetailsTitle}>
+                    <h3>Pictures</h3>
+                </div>
                 <div>
                     Picture table
                     <button>Add Picture</button>

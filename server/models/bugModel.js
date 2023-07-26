@@ -32,6 +32,9 @@ const bugSchema = new mongoose.Schema({
     type: {
         type: String,
         required: true
+    },
+    comments: {
+        type: Array
     }
 })
 

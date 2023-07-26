@@ -7,7 +7,7 @@ bugRouter.get('/', async(req,res) => {
     res.json(bugs)
 })
 bugRouter.get('/:id',async(req,res) => {
-    const bug = await Bug.find({"_id":req.params.id})
+    const bug = await Bug.findOne({"_id":req.params.id})
     res.json(bug)
 })
 

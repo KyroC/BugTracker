@@ -6,6 +6,10 @@ bugRouter.get('/', async(req,res) => {
     const bugs = await Bug.find({})
     res.json(bugs)
 })
+bugRouter.get('/:id',async(req,res) => {
+    const bug = await Bug.find({"_id":req.params.id})
+    res.json(bug)
+})
 
 //Post request
 bugRouter.post('/', async(req,res) => {

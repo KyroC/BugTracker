@@ -50,7 +50,7 @@ const BugDetail = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className={styles.ticketDetailsGrid}>
                 <div className={styles.ticketDetailsTitle}>
                     <h3>Comments</h3>
                 </div>
@@ -59,7 +59,7 @@ const BugDetail = () => {
                     <button>Add Comment</button>
                 </div>
             </div>
-            <div>
+            <div className={styles.ticketDetailsGrid}>
                 <div className={styles.ticketDetailsTitle}>
                     <h3>History</h3>
                 </div>
@@ -67,7 +67,7 @@ const BugDetail = () => {
                     History Table
                 </div>
             </div>
-            <div>
+            <div className={styles.ticketDetailsGrid}>
                 <div className={styles.ticketDetailsTitle}>
                     <h3>Pictures</h3>
                 </div>

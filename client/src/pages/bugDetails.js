@@ -6,10 +6,30 @@ import bugService from '../services/bugService';
 let ticket = (id) => {
     return bugService.getTicket(id)
 }
+let comment = (id, comment) => {
+    return bugService.addComment(id, comment)
+}
 
 const BugDetail = () => {
     const { id } = useParams()
     const [ticketArray, setTicketArray] = useState([])
+    const [userComment, setUserComment] = useState("")
+
+    const handleComment = (event) => {
+        event.preventDefault()
+        setUserComment(event.target.value)
+        console.log(event.target.value)
+    }
+    const handleFormSubmit = (event) => {
+        event.preventDefault()
+        comment(id, ({
+            "Comment": userComment,
+            "Submitter": "Admin"
+        }))
+        .then(res => {
+            console.log(res)
+        })
+    }
     useEffect(() => {
         ticket(id)
         .then(res => {
@@ -26,19 +46,19 @@ const BugDetail = () => {
                 <div className={styles.ticketDetailsTable}>
                     <div className={styles.ticketDetailsItem}>
                         <h4>Ticket Name</h4>
-                        <div>{ticketArray.name}</div>
-                        </div>
+                        <div className={styles.ticketName}>{ticketArray.name}</div>
+                    </div>
                     <div className={styles.ticketDetailsItem}>
                         <h4>Bug Description</h4>
-                        <div>{ticketArray.detail}</div>    
+                        <div className={styles.ticketDetail}>{ticketArray.detail}</div>    
                     </div>
                     <div className={styles.ticketDetailsItem}>
                         <h4>Ticket Priority</h4>
-                        <div>{ticketArray.priority}</div>
+                        <div className={styles.ticketPriority}>{ticketArray.priority}</div>
                     </div>
                     <div className={styles.ticketDetailsItem}>
                         <h4>Ticket Status</h4>
-                        <div>{ticketArray.status}</div>
+                        <div className={styles.ticketStatus}>{ticketArray.status}</div>
                     </div>
                     <div className={styles.ticketDetailsItem}>
                         <h4>Submitter</h4>
@@ -54,11 +74,33 @@ const BugDetail = () => {
                 <div className={styles.ticketDetailsTitle}>
                     <h3>Comments</h3>
                 </div>
-                <div>
-                    <div>Comments table</div>
-                    <button>Add Comment</button>
+                <div className={styles.commentFormContainer}>
+                            <form className={styles.commentForm}>
+                                <input placeholder="Comment" className={styles.commentFormInput} value={userComment} onChange={handleComment}></input>
+                                <button className={styles.commentFormButton} onClick={handleFormSubmit}>Submit</button>
+                            </form>
+                            
+                        </div>
+                <div >
+                    <div className={styles.commentTable}>
+                    <div className={styles.commentTableDetails}>
+                        <div className={`${styles.commentTableDetailsItem} ${styles.commentTableDetailsTitle}`}>
+                                        <h4>Comment</h4>    
+                                    </div>
+                                    <div className={`${styles.commentTableDetailsItem} ${styles.commentTableDetailsTitle}`}>
+                                        <h4>Submitter</h4>
+                                    </div>
+                                
+                                </div>
+                            {ticketArray.comments?.map((bug) => (
+                                <div className={styles.commentTableDetails}>
+                                    <div className={styles.commentTableDetailsItem}>{bug.Comment}</div>
+                                    <div className={styles.commentTableDetailsItem}>{bug.Submitter}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-            </div>
             <div className={styles.ticketDetailsGrid}>
                 <div className={styles.ticketDetailsTitle}>
                     <h3>History</h3>

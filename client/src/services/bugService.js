@@ -13,5 +13,10 @@ const addBug = async ticketObj => {
     return res.then(response => response.data)
 }
 
+const getTicket = async id => {
+    const res = axios.get(baseUrl + "/" + id)
+    return res.then(response => response.data)
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {setToken, addBug}
+export default {setToken, addBug, getTicket}

@@ -42,4 +42,17 @@ usersRouter.put('/:userId/addProject', async(req, res) => {
     .catch((err) => res.status(400).json("error: " + err))
 })
 
+usersRouter.delete('/:userId/deleteProject', async(req, res) => {
+    const user = await User.findOneAndUpdate(
+        {"_id": req.params.userId},
+        {
+            $pull:{
+                projects:req.body.projectId
+            }
+        }
+    )
+    .then(res.json("Project sucessfully deleted"))
+    .catch((err) => res.status(400).json("error: " + err))
+})
+
 module.exports = usersRouter

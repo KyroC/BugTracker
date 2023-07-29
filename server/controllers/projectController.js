@@ -50,7 +50,18 @@ projectRouter.post('/',async (req,res) => {
 })
 
 projectRouter.delete('/:projectId', async(req,res) => {
-    const project = await Project.findOneAndDelete({"_id":req.params.projectId})
+    const project = await Project.findOne(
+        {"_id": req.params.projectId}
+    )
+    const user = await User.updateMany(
+        {"_id":{"$in": project.users}},
+        {
+            $pull:{
+                projects:req.params.projectId
+            }
+        }
+    )
+    const projectDelete = await Project.findOneAndDelete({"_id":req.params.projectId})
     .then(() => res.json("Project deleted!"))
     .catch((err) => res.status(400).json("Error: " + err))
 })
@@ -102,6 +113,9 @@ projectRouter.delete('/:projectId/deleteUsers', async(req,res) => {
     )
     .then(() => res.json("User successfully delete"))
     .catch((err) => res.status(400).json('error' + err))
+//delete projects from users
+
+
 })
 
 

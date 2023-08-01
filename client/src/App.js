@@ -9,6 +9,7 @@ import Projects from "./pages/projects.js"
 import Bugs from "./pages/bugs"
 import loginService from './services/login'
 import projectService from './services/projectService'
+import bugService from './services/bugService'
 import ProjectEdit from "./pages/projectEdit"
 import ProjectNew from "./pages/projectNew"
 import AddTicket from "./pages/addTicket"
@@ -27,15 +28,15 @@ const App = () => {
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
       setUser(user)
+      console.log(user)
       projectService.setToken(user.token)
+      bugService.setToken(user.token)
     }
   }, [])
 
 
   const handleLogin = async(event) => {
     event.preventDefault()
-    console.log(email)
-    console.log(password)
       try {
       const user = await loginService.login({
         email,password

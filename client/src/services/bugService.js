@@ -9,8 +9,11 @@ const setToken = newToken => {
 } 
 
 const addBug = async ticketObj => {
-    const res = axios.post(baseUrl, ticketObj)
-    return res.then(response => response.data)
+    const config = {
+        headers: { Authorization: token},
+    }
+    const res = await axios.post(baseUrl, ticketObj, config)
+    return res.data
 }
 
 const getTicket = async id => {
@@ -19,8 +22,7 @@ const getTicket = async id => {
 }
 const addComment = (id, comments) => {
     const res = axios.put(baseUrl + "/" + id + "/addComment", {"comments":comments})
-    return res.then(response => console.log(response))
+    return res.data
 }
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {setToken, addBug, getTicket, addComment}

@@ -43,10 +43,22 @@ const Projects = () => {
                 <div className="project-container-title">Projects</div>
                 <div className="project-container-searchbar">
                     <ProjectTableSearch callback={searchValue => setSearchValue(searchValue)}/>
-                    
                 </div>
                 <div className="project-list-container">
-                    < ProjectTable projects={filteredArray}/>
+                    <div className="projectTable">
+                        <div className="projects">
+                        <div className="project-name">
+                        <h4>Project Name</h4>
+                    </div>
+                    <div className="project-details">
+                        <h4>Project Details</h4>
+                    </div>
+                    <div className="project-menu">
+                        <h4>Actions</h4>
+                    </div>
+                    </div>
+                        < ProjectTable projects={filteredArray}/>
+                    </div>
                 </div>
             </div>
         </div>

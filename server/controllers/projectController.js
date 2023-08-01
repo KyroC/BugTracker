@@ -25,21 +25,20 @@ projectRouter.get('/:projectId', async(req,res) => {
 })
 
 projectRouter.post('/',async (req,res) => {
-    const {name, details, users, bugs, creatorId} = req.body
+    const {name, details, users, bugs, } = req.body
     //decode user token
     const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
     if (!decodedToken.id) {
         return response.status(401).json({error: "Invalid Token"})
     }
     //get user by decoded ID
-    const user = await User.findById(decodedToken.id)
-    const creator = await User.findById(creatorId)
+    const creator = await User.findById(decodedToken.id)
     const project = new Project ({
         name,
         details,
         users,
         bugs,
-        creator: creatorId
+        creator: decodedToken.id
     })
     const savedProject = await project.save()
     console.log(creator)

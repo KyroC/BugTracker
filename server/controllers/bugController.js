@@ -1,5 +1,15 @@
+const jwt = require("jsonwebtoken")
 const bugRouter = require('express').Router()
 const Bug = require('../models/bugModel')
+const User = require("../models/userModel")
+
+const getTokenFrom = req => {
+    const authorization = req.get("authorization")
+    if (authorization && authorization.startsWith('Bearer')) {
+        return authorization.replace("Bearer ", "")
+    }
+    return null
+}
 
 //Get request
 bugRouter.get('/', async(req,res) => {
@@ -26,12 +36,15 @@ bugRouter.put('/:id/addComment', async(req,res) => {
 
 //Post request
 bugRouter.post('/', async(req,res) => {
+    const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
+    if(!decodedToken.id) {
+        return response.status(401).json({error:"Invalid Token"})
+    }
     const body = req.body
-
     const bug = new Bug ({
         name: body.name,
         detail: body.detail,
-        creator: body.creator,
+        creator: decodedToken.id,
         users: body.users,
         project: body.project,
         priority: body.priority,

@@ -40,11 +40,11 @@ const ProjectEdit = () => {
     
     return(
         <div>
-            <div className="project-edit-title"><b>Edit Project</b></div>
+            <div className="project-edit-title"><h3>Edit Project</h3></div>
             <div>
-                <div>Assign Users</div>
-                <RoleForm userArray={userArray} projectArray={projectArray} setProjectArray={setProjectArray} projectId={id} projects={projects}/>
-                <div>Current Assigned</div>
+                <div><b>Assign Users</b></div>
+                    <RoleForm userArray={userArray} projectArray={projectArray} setProjectArray={setProjectArray} projectId={id} projects={projects}/> <br />
+                <div><b>Current Assigned</b></div>
                 <div className="assigned-user-details-wrapper">
                     <div className="assigned-user-details">
                         <div className="assigned-user-header"><b>Name</b></div>
@@ -63,9 +63,9 @@ const ProjectEdit = () => {
                             </div>
                         </div>
                     ))}
-                 </div>
+                 </div><br />
                  <div className="Current Tickets">
-                    <div>Current Tickets</div>
+                    <div><b>Current Tickets</b></div>
                     <div>
                         <Link to={"/projects/" + id + "/addTicket"}>
                             <button>Add tickets</button>

@@ -35,8 +35,7 @@ const ProjectNew = () => {
                 name: projectName,
                 details: projectDetails,
                 users:[],
-                bugs:[],
-                creatorId:"647b17f34206aec9b5232ac3"
+                bugs:[]
             }            
             projectService.create(projectObject)
         }

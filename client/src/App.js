@@ -18,6 +18,7 @@ import './App.css'
 
 
 const App = () => {
+  // eslint-disable-next-line no-unused-vars
   const [errorMessage, setErrorMessage] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

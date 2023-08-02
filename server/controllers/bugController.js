@@ -21,11 +21,18 @@ bugRouter.get('/:id',async(req,res) => {
     res.json(bug)
 })
 bugRouter.put('/:id/addComment', async(req,res) => {
+    const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
+    if(!decodedToken.id) {
+        return response.status(401).json({error:"Invalid Token"})
+    }
+    const submitter = await User.findById(decodedToken.id)
+    req.body.comments["Submitter"] = submitter.name
+    console.log(req.body.comments)
     const bug = await Bug.findOneAndUpdate(
         {"_id":req.params.id},
         {
             $addToSet: {
-                "comments": req.body.comments
+                "comments": req.body.comments,
             }
         }
         

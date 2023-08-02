@@ -20,9 +20,12 @@ const getTicket = async id => {
     const res = axios.get(baseUrl + "/" + id)
     return res.then(response => response.data)
 }
-const addComment = (id, comments) => {
-    const res = axios.put(baseUrl + "/" + id + "/addComment", {"comments":comments})
-    return res.data
+const addComment = async (id, comments) => {
+    const config = {
+        headers: { Authorization: token},
+    }
+    const res = axios.put(baseUrl + "/" + id + "/addComment", {"comments":comments},config)
+    return res.then(response => response.data)
 }
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {setToken, addBug, getTicket, addComment}

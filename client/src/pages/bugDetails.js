@@ -23,11 +23,10 @@ const BugDetail = () => {
     const handleFormSubmit = (event) => {
         event.preventDefault()
         comment(id, ({
-            "Comment": userComment,
-            "Submitter": "Admin"
+            "Comment": userComment
         }))
         .then(res => {
-            console.log(res)
+            console.log(res.data)
         })
     }
     useEffect(() => {

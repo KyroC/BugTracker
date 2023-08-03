@@ -32,7 +32,8 @@ const AddTicket = () => {
             detail: ticketDetails,
             priority: ticketPriority,
             status: ticketStatus,
-            type: "UI"
+            type: "UI",
+            project: id
         }
         bugService.addBug(ticketObj)
             .then(res => projectService.addTicket(id,res._id))

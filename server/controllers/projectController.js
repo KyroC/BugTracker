@@ -60,6 +60,11 @@ projectRouter.delete('/:projectId', async(req,res) => {
             }
         }
     )
+    const bug = await Bug.deleteMany(
+        {
+            "_id":{"$in":project.bugs}
+        }
+    )
     const projectDelete = await Project.findOneAndDelete({"_id":req.params.projectId})
     .then(() => res.json("Project deleted!"))
     .catch((err) => res.status(400).json("Error: " + err))

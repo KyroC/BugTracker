@@ -60,6 +60,7 @@ bugRouter.post('/', async(req,res) => {
         comments: body.comments
     })
     const savedBug = await bug.save()
+    
     res.json(savedBug)
 })
 

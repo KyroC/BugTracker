@@ -11,6 +11,12 @@ usersRouter.get('/', async(req,res) => {
     res.json(users)
 })
 
+usersRouter.get('/:userId', async(req,res) => {
+    const user = await User.findOne({"_id":req.params.userId})
+    .populate('projects')
+    res.json(user.projects)
+})
+
 usersRouter.post('/', async(req,res) => {
     const {name, email, password, admin, role, projects} = req.body 
     const saltRounds = 10

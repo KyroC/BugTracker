@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
     projects: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Project'
+    }],
+    bugs: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bugs'
     }]
 })
 userSchema.set('toJSON', {

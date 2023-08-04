@@ -11,11 +11,13 @@ usersRouter.get('/', async(req,res) => {
     res.json(users)
 })
 
-usersRouter.get('/:userId', async(req,res) => {
+usersRouter.get('/:userId/projects', async(req,res) => {
     const user = await User.findOne({"_id":req.params.userId})
     .populate('projects')
     res.json(user.projects)
 })
+
+usersRouter.get("/:")
 
 usersRouter.post('/', async(req,res) => {
     const {name, email, password, admin, role, projects} = req.body 

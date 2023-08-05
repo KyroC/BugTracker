@@ -33,7 +33,7 @@ const App = () => {
       projectService.setToken(user.token)
       bugService.setToken(user.token)
     }
-  }, [user])
+  }, [])
 
 
   const handleLogin = async(event) => {

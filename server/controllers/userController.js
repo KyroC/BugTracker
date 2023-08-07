@@ -1,9 +1,18 @@
 //library for hashing password
 const bcrypt = require('bcrypt')
+const jwt=require("jsonwebtoken")
 const usersRouter = require('express').Router()
 const User = require('../models/userModel')
 const Bug = require('../models/bugModel')
 
+
+const getTokenFrom = req => {
+    const authorization = req.get("authorization")
+    if (authorization && authorization.startsWith('Bearer')) {
+        return authorization.replace("Bearer ", "")
+    }
+    return null
+}
 
 usersRouter.get('/', async(req,res) => {
     const users = await User.find({})
@@ -11,14 +20,16 @@ usersRouter.get('/', async(req,res) => {
     res.json(users)
 })
 
-usersRouter.get('/:userId/projects', async(req,res) => {
-    const user = await User.findOne({"_id":req.params.userId})
+usersRouter.get('/projects', async(req,res) => {
+    const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
+    const user = await User.findOne({"_id":decodedToken.id})
     .populate('projects')
     res.json(user.projects)
 })
 
 usersRouter.get('/:userId/tickets', async(req,res) => {
-    const user = await User.findOne({"_id":req.params.userId})
+    const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
+    const user = await User.findOne({"_id":decodedToken.id})
     .populate('bugs')
     res.json(user.bugs)
 })

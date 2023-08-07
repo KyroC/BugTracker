@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     }],
     bugs: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Bugs'
+        ref: 'Bug'
     }]
 })
 userSchema.set('toJSON', {

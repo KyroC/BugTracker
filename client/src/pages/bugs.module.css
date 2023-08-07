@@ -1,0 +1,15 @@
+.bugsTable {
+    border-left: black 1px solid;
+    border-top: black 1px solid;
+}
+.bugsTableRow {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    width: calc(100vw - 342px);
+    justify-content: space-between;
+    align-items: stretch;
+}
+.bugData {
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+}

@@ -9,6 +9,7 @@ import Projects from "./pages/projects.js"
 import Bugs from "./pages/bugs"
 import loginService from './services/login'
 import projectService from './services/projectService'
+import userService from './services/userService'
 import bugService from './services/bugService'
 import ProjectEdit from "./pages/projectEdit"
 import ProjectNew from "./pages/projectNew"
@@ -32,6 +33,7 @@ const App = () => {
       console.log(user)
       projectService.setToken(user.token)
       bugService.setToken(user.token)
+      userService.setToken(user.token)
     }
   }, [])
 

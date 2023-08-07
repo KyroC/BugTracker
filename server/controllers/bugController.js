@@ -60,8 +60,13 @@ bugRouter.post('/', async(req,res) => {
         comments: body.comments
     })
     const savedBug = await bug.save()
-    
-    res.json(savedBug)
+    User.findOneAndUpdate(
+        {"_id":decodedToken.id},
+            {   
+                $push: {bugs:savedBug._id}
+            })
+            .then(() => res.json(savedBug))
+            .catch((err) => res.status(400).json("error: " + err))
 })
 
 module.exports = bugRouter

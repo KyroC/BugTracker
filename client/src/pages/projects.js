@@ -6,11 +6,9 @@ import ProjectTable from '../components/projectTable'
 import ProjectTableSearch from '../components/projectTableSearch'
 import "./projects.css"
 
-const id = "649fd3faf36ed578d7e75e9a"
-
 const projectList = () => {
     //change id to current loggedin user
-    return userService.getUserProjects(id)
+    return userService.getUserProjects()
 }
 
 const Projects = () => {

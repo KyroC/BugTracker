@@ -27,7 +27,7 @@ usersRouter.get('/projects', async(req,res) => {
     res.json(user.projects)
 })
 
-usersRouter.get('/:userId/tickets', async(req,res) => {
+usersRouter.get('/tickets', async(req,res) => {
     const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
     const user = await User.findOne({"_id":decodedToken.id})
     .populate('bugs')

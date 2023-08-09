@@ -43,12 +43,33 @@ let setStatusCount = (data) => {
     console.log(dataArray)
     return dataArray
 }
-
+let setTicketByProjectCount = (data) => {
+    let dataArray = [["Project","Count"]]
+    let projects = []
+    for(let i=0;i<data.length;i++) {
+        if(!projects.flat().includes(data[i].project)){
+            projects.push([data[i].project,0])
+        }
+    }
+    for(let i=0;i< projects.length;i++) {
+        for(let j=0;j< data.length;j++) {
+            if(projects[i][0] === data[j].project) {
+                projects[i][1] ++
+            }
+        }
+    }
+    for(let i=0;i<projects.length;i++) {
+        dataArray.push(projects[i])
+    }
+    console.log(dataArray)
+    return(dataArray)
+}
 const Dashboard = () => {
      const [projectArray, setProjectArray] = useState([])
      const [bugArray, setBugArray] = useState([])
      const [dataPriority, setDataPriority] = useState([])
      const [dataStatus, setDataStatus] = useState([])
+     const [dataTicketByProject, setDataTicketByProject] = useState([])
 
     useEffect(() => {
         userProjects()
@@ -70,7 +91,10 @@ const Dashboard = () => {
     useEffect(() => {
         setDataStatus(setStatusCount(bugArray))
     },[bugArray])
-
+    useEffect(() => {
+        setDataTicketByProject(setTicketByProjectCount(bugArray))
+    },[bugArray])
+   
     const dataPriorityOptions = {
         chart: {
             title: "No. of tickets by Priority",
@@ -81,6 +105,12 @@ const Dashboard = () => {
         chart: {
             title: "No. of tickets by Status",
             subtitle:"Open, Worked On, Solved"
+        }
+    }
+    const dataTicketByProjectOptions = {
+        chart: {
+            title: "No. of tickets by projects",
+            subtitle: "Project IDs"
         }
     }
 
@@ -105,6 +135,11 @@ const Dashboard = () => {
                 </div>
                 <div>
                     <b>Number of assigned ticket by Project</b>
+                    <Chart
+                    chartType="PieChart"
+                    data={dataTicketByProject}
+                    options={dataTicketByProjectOptions}
+                    />
                 </div>
                 <div>
                     <b>Assigned Projects</b>

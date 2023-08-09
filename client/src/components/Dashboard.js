@@ -28,10 +28,27 @@ let setPriorityCount = (data) => {
     console.log(dataArray)
     return(dataArray)
 }
+let setStatusCount = (data) => {
+    let dataArray =[["Status","Count"]]
+    const status = ["Open","Worked on","Solved"]
+    for(let i=0;i<status.length;i++) {
+        let count = 0
+        for (let j=0;j<data.length;j++) {
+            if(status[i]===data[j].status) {
+                count++
+            }
+        }
+        dataArray.push([status[i],count])
+    }
+    console.log(dataArray)
+    return dataArray
+}
+
 const Dashboard = () => {
      const [projectArray, setProjectArray] = useState([])
      const [bugArray, setBugArray] = useState([])
      const [dataPriority, setDataPriority] = useState([])
+     const [dataStatus, setDataStatus] = useState([])
 
     useEffect(() => {
         userProjects()
@@ -44,41 +61,32 @@ const Dashboard = () => {
         userBugs()
         .then(res => {
             setBugArray(res)
+            console.log(res)
         })
     },[])
     useEffect(()=> {
         setDataPriority(setPriorityCount(bugArray))
     },[bugArray])
-    /* for reference
-    const data = [
-        ["Year", "Sales", "Expenses", "Profit"],
-        ["2014", 1000, 400, 200],
-        ["2015", 1170, 460, 250],
-        ["2016", 660, 1120, 300],
-        ["2017", 1030, 540, 350],
-      ];
-      
-    const options = {
-        chart: {
-          title: "Company Performance",
-          subtitle: "Sales, Expenses, and Profit: 2014-2017",
-        },
-      };
-      */
+    useEffect(() => {
+        setDataStatus(setStatusCount(bugArray))
+    },[bugArray])
+
     const dataPriorityOptions = {
         chart: {
             title: "No. of tickets by Priority",
             subtitle:"Low, Medium, High"
         }
     }
-
+    const dataStatusOptions = {
+        chart: {
+            title: "No. of tickets by Status",
+            subtitle:"Open, Worked On, Solved"
+        }
+    }
 
     return(
         <div className={styles.dashboard}>
             <div className= {styles.dashboardContainer}>
-                <div>
-                    <b>Assigned Projects</b>
-                </div>
                 <div>
                     <b>Assigned ticket count by priority</b>    
                     <Chart 
@@ -89,6 +97,17 @@ const Dashboard = () => {
                 </div>
                 <div>
                     <b>Assigned ticket count by Status</b>
+                    <Chart 
+                    chartType="Bar"
+                    data={dataStatus}
+                    options={dataStatusOptions}
+                    />
+                </div>
+                <div>
+                    <b>Number of assigned ticket by Project</b>
+                </div>
+                <div>
+                    <b>Assigned Projects</b>
                 </div>
             </div>
         </div>

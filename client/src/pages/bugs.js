@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import userService from "../services/userService";
-import styles from "./bugs.module.css"
+import styles from "./bugs.module.css";
+import Pagination from '../components/Pagination';
+
 
 const bugsList = () => {
     return userService.getUserBugs()
@@ -11,7 +13,16 @@ const Bugs = () => {
     const [bugsArray, setBugsArray] = useState([])
     const [filteredArray, setFilteredArray] = useState([])
     const [sortedArray, setSortedArray] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [ticketsPerPage] = useState(10)
 
+    const indexOfLastTicket = ticketsPerPage * currentPage 
+    const indexOfFirstTicket = indexOfLastTicket - ticketsPerPage
+    const currentTicket = sortedArray.slice(indexOfFirstTicket,indexOfLastTicket)
+
+    const handleCurrentPage = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
 
     const handlePriorityClick = () => {
             const priorities = ["High","Medium","Low"]
@@ -47,7 +58,7 @@ const Bugs = () => {
                     <div className={styles.bugData}><b>Type</b></div>
                     <div className={styles.bugData}><b>Priority</b></div>
                 </div>
-                {sortedArray.map(bug => (
+                {currentTicket.map(bug => (
                     <div className={styles.bugsTableRow}>
                         <div className={styles.bugData}>{bug.name}</div>
                         <div className={styles.bugData}>{bug.detail}</div>
@@ -56,6 +67,11 @@ const Bugs = () => {
                         <div className={styles.bugData}>{bug.priority}</div>
                     </div>
                  ))}
+                 <Pagination 
+                    rowsPerPage={ticketsPerPage}
+                    totalRows={sortedArray.length}
+                    paginate={handleCurrentPage}
+                 />
                  <button onClick={ handlePriorityClick}>Sort By Priority</button>
                  <button onClick = {handleStatusClick}>Sort By Status</button>
             </div>

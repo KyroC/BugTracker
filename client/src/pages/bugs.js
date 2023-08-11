@@ -11,23 +11,22 @@ const Bugs = () => {
     const [bugsArray, setBugsArray] = useState([])
     const [filteredArray, setFilteredArray] = useState([])
     const [sortedArray, setSortedArray] = useState([])
-    const sortByHighPriority = 
-        //to double check
-        sortedArray.sort((a,b) => {
-            if (a.priority === "High" && b.priority!=="High") {
-                return -1
-            }
-            if (a.priority === "Medium" && b.priority!=="Medium") {
-                return -1
-            }
-            return 0
-        }
 
-        ) 
+
     const handlePriorityClick = () => {
-        setSortedArray(sortByHighPriority)
-        console.log(sortByHighPriority)
-        console.log(sortedArray)
+            const priorities = ["High","Medium","Low"]
+            const priorityArray = sortedArray.sort((a,b) => 
+                priorities.indexOf(a.priority) - priorities.indexOf(b.priority)
+            )
+        setSortedArray([...priorityArray])
+    }
+    const handleStatusClick = () => {
+        const statuses = ["Open","Assigned","Worked on","Solved"]
+        const statusArray = sortedArray.sort((a,b) => (
+            statuses.indexOf(a.status) - statuses.indexOf(b.status)
+        )
+        )
+       setSortedArray([...statusArray])
     }
     useEffect(() => {
         bugsList()
@@ -57,7 +56,8 @@ const Bugs = () => {
                         <div className={styles.bugData}>{bug.priority}</div>
                     </div>
                  ))}
-                 <button onClick={ handlePriorityClick}>Sort</button>
+                 <button onClick={ handlePriorityClick}>Sort By Priority</button>
+                 <button onClick = {handleStatusClick}>Sort By Status</button>
             </div>
         </div>
     )

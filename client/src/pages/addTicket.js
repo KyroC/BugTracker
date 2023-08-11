@@ -61,7 +61,7 @@ const AddTicket = () => {
                     <label> Status:
                         <select onChange={handleTicketStatus}>
                             <option value="Open" selected>Open</option>
-                            <option value="Worked on">Worked on</option>
+                            <option value="Assigned">Assigned</option>
                             <option value="Solved">Solved</option>
                         </select> < br />
                     </label>

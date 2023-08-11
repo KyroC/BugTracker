@@ -13,3 +13,30 @@
     border-right: solid 1px black;
     border-bottom: solid 1px black;
 }
+.bugTitle {
+    cursor: pointer;
+}
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+}
+
+.pagination__link {
+    font-weight: bold;
+}
+.pagination__link__active {
+    background: #6c7ac9;
+    color: white !important; 
+  }
+.pagination__link__disabled {
+    color: rgb(198, 197, 202) !important;;
+    border: 1px solid rgb(198, 197, 202);
+}
+.pagination a {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #6c7ac9;
+    color: #6c7ac9;
+}

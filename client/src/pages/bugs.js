@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import userService from "../services/userService";
 import styles from "./bugs.module.css";
-import Pagination from '../components/Pagination';
 import ReactPaginate from 'react-paginate';
 
 
@@ -53,11 +52,11 @@ const Bugs = () => {
         <div className={styles.bugs}>
             <div className={styles.bugsTable}>
                 <div className={styles.bugsTableRow}>
-                    <div className={styles.bugData}><b>Name</b></div>
-                    <div className={styles.bugData}><b>Detail</b></div>
-                    <div className={styles.bugData}><b>Status</b></div>
-                    <div className={styles.bugData}><b>Type</b></div>
-                    <div className={styles.bugData}><b>Priority</b></div>
+                    <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Name</b></div>
+                    <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Detail</b></div>
+                    <div className={`${styles.bugData} ${styles.bugTitle}`} onClick={handleStatusClick}><b>Status</b></div>
+                    <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Type</b></div>
+                    <div className={`${styles.bugData} ${styles.bugTitle}`} onClick={handlePriorityClick}><b>Priority</b></div>
                 </div>
                 {currentTicket.map(bug => (
                     <div className={styles.bugsTableRow}>
@@ -73,11 +72,12 @@ const Bugs = () => {
                     pageCount={Math.ceil(bugsArray.length / ticketsPerPage)}
                     previousLabel={'Prev'}
                     nextLabel={'Next'}
-                    containerClassName={'pagination'}
-                    pageLinkClassName={'page-number'}
-                    previousLinkClassName={'page-number'}
-                    nextLinkClassName={'page-number'}
-                    activeLinkClassName={'active'}
+                    containerClassName={styles.pagination}
+                    pageLinkClassName={styles.pagination__link}
+                    previousLinkClassName={styles.pagination__link}
+                    nextLinkClassName={styles.pagination__link}
+                    disabledLinkClassName={styles.pagination__link__disabled}
+                    activeLinkClassName={styles.pagination__link__active}
                  />
                  <button onClick={ handlePriorityClick}>Sort By Priority</button>
                  <button onClick = {handleStatusClick}>Sort By Status</button>

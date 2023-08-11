@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import userService from "../services/userService";
 import styles from "./bugs.module.css";
 import Pagination from '../components/Pagination';
+import ReactPaginate from 'react-paginate';
 
 
 const bugsList = () => {
@@ -20,8 +21,8 @@ const Bugs = () => {
     const indexOfFirstTicket = indexOfLastTicket - ticketsPerPage
     const currentTicket = sortedArray.slice(indexOfFirstTicket,indexOfLastTicket)
 
-    const handleCurrentPage = (pageNumber) => {
-        setCurrentPage(pageNumber)
+    const handleCurrentPage = ({selected}) => {
+        setCurrentPage(selected + 1)
     }
 
     const handlePriorityClick = () => {
@@ -67,10 +68,16 @@ const Bugs = () => {
                         <div className={styles.bugData}>{bug.priority}</div>
                     </div>
                  ))}
-                 <Pagination 
-                    rowsPerPage={ticketsPerPage}
-                    totalRows={sortedArray.length}
-                    paginate={handleCurrentPage}
+                 <ReactPaginate
+                    onPageChange={handleCurrentPage}
+                    pageCount={Math.ceil(bugsArray.length / ticketsPerPage)}
+                    previousLabel={'Prev'}
+                    nextLabel={'Next'}
+                    containerClassName={'pagination'}
+                    pageLinkClassName={'page-number'}
+                    previousLinkClassName={'page-number'}
+                    nextLinkClassName={'page-number'}
+                    activeLinkClassName={'active'}
                  />
                  <button onClick={ handlePriorityClick}>Sort By Priority</button>
                  <button onClick = {handleStatusClick}>Sort By Status</button>

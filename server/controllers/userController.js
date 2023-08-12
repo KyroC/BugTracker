@@ -21,6 +21,9 @@ usersRouter.get('/', async(req,res) => {
 })
 
 usersRouter.get('/projects', async(req,res) => {
+    if (getTokenFrom(req) === null) {
+        return res.status(401).json({ error: 'token missing' })
+      }
     const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
     const user = await User.findOne({"_id":decodedToken.id})
     .populate('projects')
@@ -28,6 +31,9 @@ usersRouter.get('/projects', async(req,res) => {
 })
 
 usersRouter.get('/tickets', async(req,res) => {
+    if (getTokenFrom(req) === null) {
+        return res.status(401).json({ error: 'token missing' })
+      }
     const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
     const user = await User.findOne({"_id":decodedToken.id})
     .populate('bugs')

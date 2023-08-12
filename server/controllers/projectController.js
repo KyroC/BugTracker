@@ -13,8 +13,8 @@ const getTokenFrom = req => {
 }
 
 projectRouter.get('/', async (req,res) => {
-    const projects = await Project.find({})
-    res.json(projects)
+        const projects = await Project.find({})
+        res.json(projects)
 })
 
 projectRouter.get('/:projectId', async(req,res) => {

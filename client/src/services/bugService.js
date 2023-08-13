@@ -27,5 +27,9 @@ const addComment = async (id, comments) => {
     const res = axios.put(baseUrl + "/" + id + "/addComment", {"comments":comments},config)
     return res.then(response => response.data)
 }
+const updateTicket = async (id, updatedTicket) => {
+    const res = axios.put(baseUrl + "/" + id, updatedTicket)
+    return res.then(response => response.data)
+}
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {setToken, addBug, getTicket, addComment}
+export default {setToken, addBug, getTicket, addComment, updateTicket}

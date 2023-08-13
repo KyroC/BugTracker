@@ -85,6 +85,7 @@ const BugDetail = () => {
             setTicketStatus(res.status)
             setTicketUsers(res.users)
             setTicketProject(res.project)
+            console.log(res)
         })
     },[id])
     useEffect(() => {
@@ -157,7 +158,7 @@ const BugDetail = () => {
                     </div>
                     <div className={styles.ticketDetailsItem}>
                         <h4>Submitter</h4>
-                        <div>{ticketArray.creator}</div>
+                        <div className={styles.ticketInput}>{ticketArray?.creator?.name}</div>
                     </div>
                     <div className={styles.ticketDetailsItem}>
                         <h4>Assigned personnel</h4>

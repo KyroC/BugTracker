@@ -1,13 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './BugDetails.module.css';
 import bugService from '../services/bugService';
+import userService from '../services/userService';
+import projectService from '../services/projectService'
 
 let ticket = (id) => {
     return bugService.getTicket(id)
 }
 let comment = (id, comment) => {
     return bugService.addComment(id, comment)
+}
+let project= (id) => {
+    return projectService.getProject(id)
 }
 
 const BugDetail = () => {
@@ -19,6 +24,9 @@ const BugDetail = () => {
     const [ticketPriority, setTicketPriority] = useState("")
     const [ticketStatus, setTicketStatus] = useState("")
     const [ticketUsers, setTicketUsers] = useState([])
+    const [ticketProject, setTicketProject] = useState("'")
+    const [projectUsers, setProjectUsers] = useState([])
+    const didMountRef = useRef(false)
 
     const priorities=["Low","Medium","High"]
     const statuses=["Open","Assigned","Solved"]
@@ -66,6 +74,7 @@ const BugDetail = () => {
             users:ticketUsers
         })
     }
+
     useEffect(() => {
         ticket(id)
         .then(res => {
@@ -75,9 +84,19 @@ const BugDetail = () => {
             setTicketPriority(res.priority)
             setTicketStatus(res.status)
             setTicketUsers(res.users)
-            console.log(res)
+            setTicketProject(res.project)
         })
     },[id])
+    useEffect(() => {
+        if(didMountRef.current) {
+            project("64cb5f5a26f9b4b4697fa19b")
+            .then(res => {
+                setProjectUsers(res.users)
+                console.log(res.users)})
+        }
+        didMountRef.current = true; 
+    }, [ticketProject])
+
     return (
         <div className={styles.ticketDetailsPage}>
 
@@ -142,7 +161,15 @@ const BugDetail = () => {
                     </div>
                     <div className={styles.ticketDetailsItem}>
                         <h4>Assigned personnel</h4>
-                        <div>{ticketArray.users}</div>
+                        <div>
+                            <select className={styles.ticketInput} onChange={handleTicketUsers}>
+                                {projectUsers.map(user=> (
+                                    <option value={user.id}>
+                                        {user.name}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" onClick={handleFromSubmit}>Update</button>

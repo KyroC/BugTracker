@@ -58,7 +58,6 @@ const App = () => {
         setErrorMessage(null)
       },5000)
     }
-    console.log("Logging in with", email, password)
   }
   
 

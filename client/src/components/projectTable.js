@@ -13,7 +13,6 @@ const ProjectTable = ({projects}) => {
                     <div className="project-menu">
                         <ul>
                             <li><Link to={project._id + "/edit"}>Edit Details</Link></li>
-                            <li><a href="manage-project-users">Manage Users</a></li> 
                         </ul>
                     </div>
                 </div>

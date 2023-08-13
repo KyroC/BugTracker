@@ -63,7 +63,7 @@ const BugDetail = () => {
     }
     const handleTicketUsers = (event) => {
         event.preventDefault()
-        setTicketUsers(ticketUsers.push(event.target.value))
+        setTicketUsers(event.target.value)
     }
     const handleFromSubmit = (event) => {
         bugService.updateTicket(id, {

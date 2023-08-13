@@ -20,6 +20,8 @@ bugRouter.get('/:id',async(req,res) => {
     const bug = await Bug.findOne({"_id":req.params.id})
     res.json(bug)
 })
+
+//Put request to add comments
 bugRouter.put('/:id/addComment', async(req,res) => {
     const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
     if(!decodedToken.id) {
@@ -39,6 +41,26 @@ bugRouter.put('/:id/addComment', async(req,res) => {
     )
     .then(() => res.json("Comment successfully created"))
     .catch((err) => res.status(400).json("error: " + err))
+})
+
+//Put request to update details 
+bugRouter.put('/:id', async(req,res) => {
+    const body = req.body
+    const updatedBug = {
+        name: body.name,
+        detail: body.detail,
+        users: body.users,
+        priority: body.priority,
+        status: body.status,
+        type: body.type,
+    }
+    const bug = await Bug.findOneAndUpdate(
+        {"_id":req.params.id},
+        {
+            $set: updatedBug
+        })
+        .then(() => res.json("Bug successfully update"))
+        .catch((err) => res.status(400).json("error: " + err))
 })
 
 //Post request

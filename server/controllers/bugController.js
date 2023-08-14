@@ -18,6 +18,7 @@ bugRouter.get('/', async(req,res) => {
 })
 bugRouter.get('/:id',async(req,res) => {
     const bug = await Bug.findOne({"_id":req.params.id})
+    .populate('creator')
     res.json(bug)
 })
 

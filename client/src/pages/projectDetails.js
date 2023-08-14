@@ -15,13 +15,14 @@ let projects = (id) =>{
 const ProjectDetails = () => {
     const { id } = useParams() 
     const [projectArray, setProjectArray] = useState([])
+
     useEffect(() => {
         projects(id)
         .then(res => {
             setProjectArray(res)
+            
         })
     },[id])
-    
     
     return(
         <div className="project-grid">

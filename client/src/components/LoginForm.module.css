@@ -68,3 +68,14 @@
     margin: 8px 0;
     width:100%
 }
+.demoContainer {
+    display:flex;
+    margin-top:5px;
+}
+.demoButton {
+    height:75%;
+    font-size:8px;
+    padding: 5px;
+    margin: 2px;
+    border: 0
+}

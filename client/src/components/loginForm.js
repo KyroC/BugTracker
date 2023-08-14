@@ -2,6 +2,11 @@ import styles from './LoginForm.module.css'
 
 
 const LoginForm = (props) => {
+    const logAdmin = () => {
+        props.setEmail(("admin@email.com"))
+        props.setPassword(("admin"))
+        props.handleLogin()
+    }
     return (
         <div className={styles.loginPage}>
             <div className={styles.container} id="container">
@@ -28,6 +33,14 @@ const LoginForm = (props) => {
                             onChange= {({target}) => props.setPassword(target.value)} />
                         </div>
                         <button type="submit" className={styles.button} >login</button>
+                        <div className={styles.demoContainer}>
+                            <div>
+                                <button className={`${styles.button} ${styles.demoButton}`} onClick={() => logAdmin()}>Login as Admin</button>
+                            </div>
+                            <div>
+                                <button className={`${styles.button} ${styles.demoButton}`}>Login as User</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

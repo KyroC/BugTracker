@@ -22,6 +22,7 @@ const Projects = () => {
         .then(res => {
             setProjectsArray(res)
             setFilteredArray(res)
+            console.log(res)
         })
     },[])   
 

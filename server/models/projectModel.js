@@ -23,6 +23,8 @@ const projectSchema = new mongoose.Schema({
     }
 })
 
+projectSchema.set('timestamps', true);
+
 const Project = mongoose.model('Project',projectSchema)
 
 module.exports = Project;

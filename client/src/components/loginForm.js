@@ -3,8 +3,13 @@ import styles from './LoginForm.module.css'
 
 const LoginForm = (props) => {
     const logAdmin = () => {
-        props.setEmail(("admin@email.com"))
-        props.setPassword(("admin"))
+        props.setEmail("admin@email.com")
+        props.setPassword("admin")
+        props.handleLogin()
+    }
+    const logUser = () => {
+        props.setEmail("DemoUser@email.com")
+        props.setPassword("DemoUserPassword")
         props.handleLogin()
     }
     return (
@@ -38,7 +43,7 @@ const LoginForm = (props) => {
                                 <button className={`${styles.button} ${styles.demoButton}`} onClick={() => logAdmin()}>Login as Admin</button>
                             </div>
                             <div>
-                                <button className={`${styles.button} ${styles.demoButton}`}>Login as User</button>
+                                <button className={`${styles.button} ${styles.demoButton}`} onClick = {() => logUser()}>Login as User</button>
                             </div>
                         </div>
                     </form>

@@ -32,7 +32,6 @@ Current stage: MVP
 
 - **Frontend**
   - React: JavaScript library for building user interfaces.
-  - Redux: State management for React applications.
   - React Router: Routing library for handling navigation.
   - Axios: Promise-based HTTP client for making API requests.
 

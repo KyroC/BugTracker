@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.96f9ff96.css",
+    "main.js": "/static/js/main.c3aba148.js",
+    "static/media/buggy-logo.png": "/static/media/buggy-logo.b1e9e0ee62d39b8fb711.png",
+    "index.html": "/index.html",
+    "main.96f9ff96.css.map": "/static/css/main.96f9ff96.css.map",
+    "main.c3aba148.js.map": "/static/js/main.c3aba148.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96f9ff96.css",
+    "static/js/main.c3aba148.js"
+  ]
+}

@@ -19,6 +19,7 @@ mongoose.connect(DB, {
 })
 app.use(express.json())
 app.use(cors())
+app.use(express.static('build'))
 
 //Routes
 app.use('/api/bugs', bugRouter)

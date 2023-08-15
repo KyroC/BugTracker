@@ -49,10 +49,6 @@ Current stage: MVP
   - React Build: Production-ready build of the frontend.
 
 
-## Deployment
-
-1. Deployed using NPM run build and render.com
-
 ## Created by 
 
 - [TT](https://github.com/KyroC)

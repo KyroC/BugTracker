@@ -7,6 +7,7 @@ const bugRouter = require('./controllers/bugController')
 const usersRouter = require('./controllers/userController')
 const projectRouter = require('./controllers/projectController')
 const loginRouter = require('./controllers/loginController')
+const path = require('path');
 require("express-async-errors")
 
 const DB = process.env.ATLAS_URI

@@ -26,7 +26,7 @@ const ProjectDetails = () => {
     
     return(
         <div className="project-grid">
-            <div className="project-grid-details box1">
+            <div className="project-grid-details box1 project-grid-item">
                 <div className="project-grid-title box-a1">
                     <div><h1>Details for project #1</h1></div> 
                     </div>
@@ -39,25 +39,38 @@ const ProjectDetails = () => {
                     <div>{projectArray.details}</div>
                 </div>
             </div>
-            <div className="project-users box2">
+            <div className="project-bugs box2 project-grid-item">
+                <div className="project-bugs-title">
+                    <b>Tickets/Bugs for this project</b>
+                </div>
+                <div className="project-bugs-table">
+                    <div className="project-bugs-items">
+                        <div className="project-bugs-info"><b>Bug Name</b></div>
+                        <div className="project-bugs-info"><b>Bug Details</b></div>
+                        <div className="project-bugs-info"><b>Bug Priority</b></div>
+                        <div className="project-bugs-info"><b>Last updated</b></div>
+                    </div>
+                    {projectArray.bugs?.map((bug)=> (
+                        <div className="project-bugs-items">
+                         <div className="project-bugs-info">{bug.name}</div>
+                         <div className="project-bugs-info">{bug.detail}</div>
+                         <div className="project-bugs-info">{bug.priority}</div>
+                         <div className="project-bugs-info">{bug.detail}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        <div className="project-users box3 project-grid-item">
                 <div className="project-users-title">
                     <div><b>Assigned Personnel</b></div>
                 </div>
                 {projectArray.users?.map((user)=> (
                     <div className="project-users-table">
                         <div>{user.name}</div>
-                        </div> 
+                        <div>{user.role}</div>
+                    </div> 
                         ))}
             </div>
-            <div className="project-bugs box3">
-                <div className="project-bugs-title"><b>Tickets/Bugs for this project</b></div>
-            {projectArray.bugs?.map((bug)=> (
-                <div className="projects-bugs-table">
-                    <div>{bug.name}</div>
-                </div>
-                
-            ))}
-        </div>
         </div>
     )
 }

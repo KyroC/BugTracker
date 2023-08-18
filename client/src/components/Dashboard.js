@@ -117,7 +117,7 @@ const Dashboard = () => {
     return(
         <div className={styles.dashboard}>
             <div className= {styles.dashboardContainer}>
-                <div>
+                <div className = {styles.dashboardItem}>
                     <b>Assigned ticket count by priority</b>    
                     <Chart 
                     chartType="Bar" 
@@ -125,7 +125,7 @@ const Dashboard = () => {
                     options = {dataPriorityOptions}
                     />
                 </div>
-                <div>
+                <div className = {styles.dashboardItem}>
                     <b>Assigned ticket count by Status</b>
                     <Chart 
                     chartType="Bar"
@@ -133,7 +133,7 @@ const Dashboard = () => {
                     options={dataStatusOptions}
                     />
                 </div>
-                <div>
+                <div className = {styles.dashboardItem}>
                     <b>Number of assigned ticket by Project</b>
                     <Chart
                     chartType="PieChart"
@@ -141,7 +141,7 @@ const Dashboard = () => {
                     options={dataTicketByProjectOptions}
                     />
                 </div>
-                <div>
+                <div className = {styles.dashboardItem}>
                     <b>Assigned Projects</b>
                 </div>
             </div>

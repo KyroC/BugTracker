@@ -1,4 +1,14 @@
 .dashboardContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; 
+    height:calc(100vh - 64px);
+    background-color:#FAF9F6;   
+    padding:10px;
+}
+.dashboardItem{
+    margin:10px;
+    background-color:white;
+    border-radius:20px;
+    padding:10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }

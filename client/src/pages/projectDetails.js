@@ -28,19 +28,20 @@ const ProjectDetails = () => {
         <div className="project-grid">
             <div className="project-grid-details box1">
                 <div className="project-grid-title box-a1">
-                    Details for project #1</div>
+                    <div><h1>Details for project #1</h1></div> 
+                    </div>
                 <div className="project-grid-name box-a2">
-                    <div>Project Name:</div>
+                    <div><b>Project Name:</b></div><br />
                     <div>{projectArray.name}</div>
                 </div>
                 <div className="project-grid-description a3">
-                    <div>Project Description:</div>
+                    <div><b>Project Description:</b></div>
                     <div>{projectArray.details}</div>
                 </div>
             </div>
             <div className="project-users box2">
                 <div className="project-users-title">
-                    <div>Assigned Personnel</div>
+                    <div><b>Assigned Personnel</b></div>
                 </div>
                 {projectArray.users?.map((user)=> (
                     <div className="project-users-table">
@@ -49,7 +50,7 @@ const ProjectDetails = () => {
                         ))}
             </div>
             <div className="project-bugs box3">
-                <div className="project-bugs-title">Tickets/Bugs for this project</div>
+                <div className="project-bugs-title"><b>Tickets/Bugs for this project</b></div>
             {projectArray.bugs?.map((bug)=> (
                 <div className="projects-bugs-table">
                     <div>{bug.name}</div>

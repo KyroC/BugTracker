@@ -1,10 +1,11 @@
+/* to refactor for module.css*/
 .project-grid{
     display:grid;
     grid-template-areas:
     "a a a" 
-    "b c c" 
-    "b c c"; 
-    background-color:lightgrey;
+    "b b c" 
+    "b b c"; 
+    background-color:rgba(245, 245, 245, 0.884);
     justify-items:stretch;
     margin: 20px 10px 20px 10px;
     max-height: calc(100vh - 120px);
@@ -17,10 +18,12 @@
 .box2 {
     grid-area: b;
     background-color: white;
+    padding: 10px;
 }
 .box3 {
     grid-area: c;
     background-color:white;
+    padding: 10px;
 }
 .project-grid-details {
     display:grid;
@@ -57,4 +60,19 @@
     margin: 0px 20px 0px 20px;
     padding: 10px 0px 10px 0px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.project-grid-item {
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1) 
+}
+.project-bugs-items {
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+}
+.project-bugs-info {
+    border-right:black 1px solid;
+    border-bottom:black 1px solid;
+}
+.project-bugs-table {
+    border-top: black 1px solid;
+    border-left: black 1px solid;
 }

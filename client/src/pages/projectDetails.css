@@ -5,7 +5,6 @@
     "b c c" 
     "b c c"; 
     background-color:lightgrey;
-    justify-content: space-between;
     justify-items:stretch;
     margin: 20px 10px 20px 10px;
     max-height: calc(100vh - 120px);
@@ -35,8 +34,15 @@
 }
 .box-a1 {
     grid-area: aa;
+    height:55px;
+    text-align:center;
 }
-
+.project-users {
+    margin: 20px 10px 20px 10px;
+}
+.project-bugs{
+    margin: 20px 10px 20px 10px;
+}
 .box-a2 {
     grid-area: ab;
 }
@@ -51,7 +57,4 @@
     margin: 0px 20px 0px 20px;
     padding: 10px 0px 10px 0px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-.project-users {
-    display: grid;
 }

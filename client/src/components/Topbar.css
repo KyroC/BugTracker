@@ -1,9 +1,18 @@
+.topbar-container {
+    padding: 20px 10px 0px 10px;
+    background-color:#f5f7ff;
+    height: 64px;
+}
 .topbar {
     display:flex;
-    height: 64px;
     text-align: center;
     align-items: center;
     justify-content: space-between;
+    border-radius: 10px;
+    background-color:white;
+    padding: 10px;
+    height:100%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
 }
 
 .topbar-right ul {

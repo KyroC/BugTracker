@@ -79,7 +79,7 @@ const ProjectEdit = () => {
                                 <div className="ticket-data-header"><b>Priority</b></div>
                                 <div className="ticket-data-header"><b>Actions</b></div>
                             </div>
-                        {projectArray.bugs?.map((bug) => (
+                        {projectArray.bugs?.toReversed().map((bug) => (
                             <div className="ticket-data">
                                 <div className="ticket-name">{bug.name}</div>
                                 <div className="ticket-detail">{bug.detail}</div>

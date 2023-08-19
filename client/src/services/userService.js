@@ -8,6 +8,14 @@ const setToken = newToken => {
     token = `Bearer ${newToken}`
 }
 
+const getUser = () => {
+    const config = {
+        headers : { Authorization: token}
+    }
+    const request = axios.get(usersUrl + "/profile", config)
+    return request.then(response => response.data)
+}
+
 const getUserProjects = () => {
     const config = {
         headers: { Authorization: token}
@@ -24,4 +32,4 @@ const getUserBugs = () => {
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {getUserProjects, setToken, getUserBugs}
+export default {getUserProjects, setToken, getUserBugs, getUser}

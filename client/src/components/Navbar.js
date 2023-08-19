@@ -23,9 +23,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
-            <div className="navbar-bottom">
-                Nav-bottom/Footer
-            </div>
+
         </div>
     )
 }

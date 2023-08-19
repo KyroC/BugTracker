@@ -5,7 +5,9 @@
 .assigned-user-details {
    display: grid; 
    grid-template-columns: 1fr 1fr 1fr 1fr;
-   
+}
+.assigned-user-details:nth-of-type(odd) {
+    background-color:rgba(0,0,0,0.12)
 }
 .assigned-user-details > * {
     border-bottom: solid 1px black;
@@ -15,6 +17,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    background-color:rgb(137,210,215)
 }
 .assigned-user-details-data {
     display:flex;
@@ -27,6 +30,7 @@
     display:flex;
     justify-content: center;
     align-items:center;
+    background-color:rgb(137,210,215)
 }
 .ticket-data {
     display:grid;
@@ -35,4 +39,7 @@
 .ticket-data > * {
     border-bottom: solid 1px black;
     border-right: solid 1px black;
+}
+.ticket-data:nth-of-type(odd) {
+    background-color:rgba(0,0,0,0.12)
 }

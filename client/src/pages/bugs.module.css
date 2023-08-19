@@ -18,9 +18,10 @@
 }
 .pagination {
     display: flex;
-    justify-content: space-between;
     list-style: none;
     cursor: pointer;
+    justify-content: space-around;
+    
 }
 
 .pagination__link {

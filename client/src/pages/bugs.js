@@ -42,10 +42,10 @@ const Bugs = () => {
     useEffect(() => {
         bugsList()
         .then(res => {
-            setBugsArray(res)
+            setBugsArray(res.toReversed())
             console.log(bugsArray)
             setFilteredArray(res)
-            setSortedArray(res)
+            setSortedArray(res.toReversed())
         })
     },[])
     return(

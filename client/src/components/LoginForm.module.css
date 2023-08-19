@@ -35,9 +35,9 @@
 
 .button {
     border-radius:20px;
-    border: 1px solid #FF4B2B;
-    background-color: #FF4B2B;
-    color:#FFFFFF;
+    border: 1px solid rgb(137, 210, 215);
+    background-color: rgb(137, 210, 215);
+    color:black;
     font-size: 12px;
     font-weight: bold;
     padding: 12px 45px;

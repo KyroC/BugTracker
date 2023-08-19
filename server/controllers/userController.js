@@ -20,6 +20,18 @@ usersRouter.get('/', async(req,res) => {
     res.json(users)
 })
 
+usersRouter.get('/profile', async(req,res) => {
+    if (getTokenFrom(req) === null) {
+        return res.status(401).json({ error: 'token missing' })
+    }
+    const decodedToken = jwt.verify(getTokenFrom(req), process.env.SECRET)
+    if (!decodedToken.id) {
+        return response.status(401).json({error:'Invalid Token'})
+    }
+    const user = await User.findOne({"_id":decodedToken.id})
+    res.json(user)
+})
+
 usersRouter.get('/projects', async(req,res) => {
     if (getTokenFrom(req) === null) {
         return res.status(401).json({ error: 'token missing' })

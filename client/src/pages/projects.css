@@ -12,3 +12,7 @@
     overflow: hidden;
     border: 1px solid black;
 }
+.projects-header {
+    background-color: rgb(137, 210, 215);
+    text-align: center;  
+}

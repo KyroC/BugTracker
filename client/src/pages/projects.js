@@ -49,17 +49,17 @@ const Projects = () => {
                 </div>
                 <div className="project-list-container">
                     <div className="projectTable">
-                        <div className="projects">
-                        <div className="project-name">
-                        <h4>Project Name</h4>
-                    </div>
-                    <div className="project-details">
-                        <h4>Project Details</h4>
-                    </div>
-                    <div className="project-menu">
-                        <h4>Actions</h4>
-                    </div>
-                    </div>
+                        <div className="projects projects-header">
+                            <div className="project-name">
+                                <h4>Project Name</h4>
+                            </div>
+                            <div className="project-details">
+                                <h4>Project Details</h4>
+                            </div>
+                            <div className="project-menu">
+                                <h4>Actions</h4>
+                            </div>
+                         </div>
                         < ProjectTable projects={filteredArray}/>
                     </div>
                 </div>

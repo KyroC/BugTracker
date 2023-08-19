@@ -65,23 +65,23 @@ const App = () => {
   const mainApp = (e) => (
     <Router>
       <div className = "app-container">
-      <Navbar />
-        <div className="main">
-          <Topbar />
-          <div className="page">
-              <Routes >
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/projects" element={< Projects/>} />
-                <Route path="/projects/:id" element={<ProjectDetails />} />
-                <Route path="/bugs" element={<Bugs />} />
-                <Route path="/bug/:id" element={<BugDetail />} />
-                <Route path="/projects/:id/edit" element={<ProjectEdit />} />
-                <Route path="/projects/new" element={< ProjectNew/>} />
-                <Route path="/projects/:id/addTicket" element = {<AddTicket/>} />
-              </Routes>
+        <Navbar />
+          <div className="main">
+            <Topbar />
+            <div className="page">
+                <Routes >
+                  <Route exact path="/" element={<Home />} />
+                  <Route exact path="/projects" element={< Projects/>} />
+                  <Route path="/projects/:id" element={<ProjectDetails />} />
+                  <Route path="/bugs" element={<Bugs />} />
+                  <Route path="/bug/:id" element={<BugDetail />} />
+                  <Route path="/projects/:id/edit" element={<ProjectEdit />} />
+                  <Route path="/projects/new" element={< ProjectNew/>} />
+                  <Route path="/projects/:id/addTicket" element = {<AddTicket/>} />
+                </Routes>
+            </div>
           </div>
         </div>
-      </div>
     </Router>
   )
 

@@ -51,7 +51,7 @@ const Bugs = () => {
     return(
         <div className={styles.bugs}>
             <div className={styles.bugsTable}>
-                <div className={styles.bugsTableRow}>
+                <div className={`${styles.bugsTableRow} ${styles.bugTableHeader}`}>
                     <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Name</b></div>
                     <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Detail</b></div>
                     <div className={`${styles.bugData} ${styles.bugTitle}`} onClick={handleStatusClick}><b>Status</b></div>

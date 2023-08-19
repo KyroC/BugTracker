@@ -56,7 +56,7 @@ const ProjectEdit = () => {
                         <div className="assigned-user-details">
                             <div className="assigned-user-details-data">{user.name}</div>
                             <div className="assigned-user-details-data">{user.email}</div>
-                            <div className="assigned-user-details-data"> {user.role}</div>
+                            <div className="assigned-user-details-data">{user.role}</div>
                             <div 
                             className="assigned-user-details-delete">
                                 <button value={user.id} onClick={handleDelete}>Delete</button>
@@ -77,7 +77,7 @@ const ProjectEdit = () => {
                                 <div className="ticket-data-header"><b>Detail</b></div>
                                 <div className="ticket-data-header"><b>Status</b></div>
                                 <div className="ticket-data-header"><b>Priority</b></div>
-                                <div className="ticket-data-header>"><b>Actions</b></div>
+                                <div className="ticket-data-header"><b>Actions</b></div>
                             </div>
                         {projectArray.bugs?.map((bug) => (
                             <div className="ticket-data">

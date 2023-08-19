@@ -27,7 +27,7 @@
     font-weight: bold;
 }
 .pagination__link__active {
-    background: #6c7ac9;
+    background: rgb(137, 210, 215);
     color: white !important; 
   }
 .pagination__link__disabled {
@@ -36,7 +36,14 @@
 }
 .pagination a {
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 5px; 
     border: 1px solid #6c7ac9;
-    color: #6c7ac9;
+    color: #000000;
+}
+.bugTableHeader {
+    background-color: rgb(137, 210, 215)!important;
+
+}
+.bugsTableRow:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.12);
 }

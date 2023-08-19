@@ -3,6 +3,9 @@
     margin: 0px;
     padding: 0px;
 }
+body {
+    background-color:#f5f7ff;
+}
 h1 {
     font-weight: bold;
     margin:0;
@@ -23,9 +26,13 @@ span {
 }
 .app {
     height: 100vh;
+    width: 100vw
 }
 .app-container {
-    display: grid;
-    grid-template-columns:1fr 4fr;
+    display:flex;
     height:100%;
+    width: 100%;
+}
+.main {
+    flex-grow:1
 }

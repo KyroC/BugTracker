@@ -3,7 +3,16 @@
     flex-direction: column;
     justify-content: space-between;
     height:100%;
-    width:342px;
+    min-width:250px;
+    background-color: #f5f7ff;
+
+}
+.navbar-top {
+    margin: 20px 20px 20px 20px;
+    background-color:white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    border-radius:20px;
 }
 img {
     width: 100%;

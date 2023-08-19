@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr; 
     height:calc(100vh - 64px);
-    background-color:#FAF9F6;   
     padding:10px;
 }
 .dashboardItem{

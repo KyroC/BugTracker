@@ -64,7 +64,12 @@ const Bugs = () => {
                     </div>
                     {currentTicket.map(bug => (
                         <div className={styles.bugsTableRow}>
-                            <div className={styles.bugData}>{bug.name}</div>
+                            <div className={styles.bugData}>
+                                <Link to = {"../bug/" + bug._id} >
+                                    {bug.name}
+                                </Link>
+                            
+                            </div>
                             <div className={styles.bugData}>{bug.detail}</div>
                             <div className={styles.bugData}>{bug.status}</div>
                             <div className={styles.bugData}>{bug.type}</div>

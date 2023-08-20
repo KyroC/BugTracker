@@ -28,7 +28,7 @@ const ProjectDetails = () => {
         <div className="project-grid">
             <div className="project-grid-details box1 project-grid-item">
                 <div className="project-grid-title box-a1">
-                    <div><h1>Details for project #1</h1></div> 
+                    <div><h1>{projectArray.name}</h1></div> 
                     </div>
                 <div className="project-grid-name box-a2">
                     <div><b>Project Name:</b></div><br />
@@ -40,11 +40,11 @@ const ProjectDetails = () => {
                 </div>
             </div>
             <div className="project-bugs box2 project-grid-item">
-                <div className="project-bugs-title">
+                <div className="project-bugs-title center">
                     <b>Tickets/Bugs for this project</b>
                 </div>
                 <div className="project-bugs-table">
-                    <div className="project-bugs-items">
+                    <div className="project-bugs-items table-header">
                         <div className="project-bugs-info"><b>Bug Name</b></div>
                         <div className="project-bugs-info"><b>Bug Details</b></div>
                         <div className="project-bugs-info"><b>Bug Priority</b></div>
@@ -61,15 +61,21 @@ const ProjectDetails = () => {
                 </div>
             </div>
         <div className="project-users box3 project-grid-item">
-                <div className="project-users-title">
+                <div className="project-users-title center">
                     <div><b>Assigned Personnel</b></div>
                 </div>
+                <div className="project-users-table-container">
+                    <div className="project-users-table table-header">
+                        <div className="project-user-table-items"><h4>User</h4></div>
+                        <div className="project-user-table-items"><h4>Role</h4></div>
+                    </div>
                 {projectArray.users?.map((user)=> (
                     <div className="project-users-table">
-                        <div>{user.name}</div>
-                        <div>{user.role}</div>
+                        <div className="project-user-table-items">{user.name}</div>
+                        <div className="project-user-table-items">{user.role}</div>
                     </div> 
-                        ))}
+                    ))}
+                </div>
             </div>
         </div>
     )

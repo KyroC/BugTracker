@@ -16,3 +16,25 @@
     background-color: rgb(137, 210, 215);
     text-align: center;  
 }
+.projects-page {
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.05)
+
+}
+.projects-page-container {
+    height:calc(100vh - 64px);
+    padding: 20px 10px 20px 10px;
+}
+.new-project {
+    margin: 5px 31px 5px 0px;
+    text-align:right;
+    
+}
+.projects-page-top {
+    display:flex;
+    justify-content: space-between;
+    text-align:center;
+}

@@ -1,3 +1,18 @@
+.bugsPage {
+    height: calc(100vh - 64px);
+    width: calc(100vw - 250px);
+    padding: 20px 10px 20px 10px;
+}
+.bugs {
+    padding: 20px;
+    height:100%;
+    background-color:white;
+    border-radius: 20px;
+    box-shadow: 20px 10px 10px rgba(0,0,0,0.1)
+}
+.bugPageTitle {
+    margin: 10px 0px;
+}
 .bugsTable {
     border-left: black 1px solid;
     border-top: black 1px solid;
@@ -5,23 +20,25 @@
 .bugsTableRow {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
-    width: calc(100vw - 342px);
     justify-content: space-between;
     align-items: stretch;
 }
 .bugData {
     border-right: solid 1px black;
     border-bottom: solid 1px black;
+    padding-left: 2px;
 }
 .bugTitle {
     cursor: pointer;
+    text-align:center;
 }
 .pagination {
     display: flex;
     list-style: none;
     cursor: pointer;
-    justify-content: space-around;
-    
+    justify-content: center;
+    margin: 10px;
+    gap: 10px;
 }
 
 .pagination__link {
@@ -36,7 +53,7 @@
     border: 1px solid rgb(198, 197, 202);
 }
 .pagination a {
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px; 
     border: 1px solid #6c7ac9;
     color: #000000;

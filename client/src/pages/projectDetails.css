@@ -14,16 +14,19 @@
 .box1 {
     grid-area: a;
     background-color:white;
+    border-radius:20px;
 }
 .box2 {
     grid-area: b;
     background-color: white;
     padding: 10px;
+    border-radius: 20px;
 }
 .box3 {
     grid-area: c;
     background-color:white;
     padding: 10px;
+    border-radius:20px; 
 }
 .project-grid-details {
     display:grid;
@@ -60,6 +63,7 @@
     margin: 0px 20px 0px 20px;
     padding: 10px 0px 10px 0px;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius:10px;
 }
 .project-grid-item {
     box-shadow: 10px 10px 10px rgba(0,0,0,0.1) 
@@ -75,4 +79,30 @@
 .project-bugs-table {
     border-top: black 1px solid;
     border-left: black 1px solid;
+}
+.project-users-table {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.project-users-table-container {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+.project-user-table-items {
+    border-right: black 1px solid;
+    border-bottom: black 1px solid
+}
+.center {
+    text-align:center;
+    margin-bottom:10px;
+}
+.table-header {
+    background-color: rgb(137, 210, 215) !important;
+}
+
+.project-bugs-items:nth-of-type(odd) {
+    background-color: lightgrey;
+}
+.project-users-table:nth-of-type(odd) {
+    background-color: lightgrey;
 }

@@ -1,9 +1,26 @@
+.ticketDetailsContainer {
+    height: calc(100vh - 64px);
+    padding: 20px 10px;
+}
 .ticketDetailsPage {
+    height:100%;
     display: grid;
     grid-template-columns: 1fr 1fr;   
+    background-color: white;
+    border-radius: 20px;
+    box-shadow:rgba(0, 0, 0, 0.05)
+}
+.ticketDetailsGridContainer {
+    padding: 20px 10px 0px 20px;
+    background-color:#f5f7ff;
 }
 .ticketDetailsGrid {
-    padding: 20px 10px 0px 20px;
+    background-color: white;
+    height:100%;
+    border-radius:20px;
+    box-shadow:rgba(0, 0, 0, 0.05);
+    width:100%;
+    padding: 20px;
 }
 .ticketDetailsTable {
     display: grid;
@@ -15,9 +32,11 @@
 .ticketDetailsTitle {
     background-color: orange;
     position: relative;
-    margin: 0px 30px 0px 30px;
-    box-shadow:rgba(0,0,0,0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    margin: 0px 30px 15px 30px;
+    box-shadow:rgba(0,0,0,0.1) 0px 19px 38px,
+    rgba(0, 0, 0, 0.12) 0px 15px 12px;
+    text-align: center;
+    border-radius: 5px;
 }
 .commentTableDetailsTitle {
     display:flex;
@@ -32,17 +51,20 @@
 .commentTableDetailsItem {
     border-right: solid 1px black;
     border-bottom: solid 1px black;
+    padding: 2px;
 }
 .commentTable {
     border-left: solid 1px black;;
     border-top: solid 1px black;
 }
 .commentForm {
+    display:flex;
+    justify-content: center;
     width:100%;
+    margin-bottom:5px;
 }
 .commentFormInput {
     width: 80%;
-    margin: 10px;
 }
 .commentFormButton {
     width:calc(20% - 40px);
@@ -87,4 +109,11 @@
     width: 100%;
     height: 100%;
     border:0px;
+}
+.ticketDetailsItemsUpdate {
+    width:100%;
+}
+.ticketDetailsItemUpdate > button {
+    float: right;
+    margin-top: 5px;
 }

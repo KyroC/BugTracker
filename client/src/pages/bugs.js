@@ -49,40 +49,47 @@ const Bugs = () => {
         })
     },[])
     return(
-        <div className={styles.bugs}>
-            <div className={styles.bugsTable}>
-                <div className={`${styles.bugsTableRow} ${styles.bugTableHeader}`}>
-                    <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Name</b></div>
-                    <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Detail</b></div>
-                    <div className={`${styles.bugData} ${styles.bugTitle}`} onClick={handleStatusClick}><b>Status</b></div>
-                    <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Type</b></div>
-                    <div className={`${styles.bugData} ${styles.bugTitle}`} onClick={handlePriorityClick}><b>Priority</b></div>
+        <div className={styles.bugsPage}>
+            <div className={styles.bugs }>
+                <div className={styles.bugPageTitle}>
+                    <h4>Bug Details</h4>
                 </div>
-                {currentTicket.map(bug => (
-                    <div className={styles.bugsTableRow}>
-                        <div className={styles.bugData}>{bug.name}</div>
-                        <div className={styles.bugData}>{bug.detail}</div>
-                        <div className={styles.bugData}>{bug.status}</div>
-                        <div className={styles.bugData}>{bug.type}</div>
-                        <div className={styles.bugData}>{bug.priority}</div>
+                <div className={styles.bugsTable}>
+                    <div className={`${styles.bugsTableRow} ${styles.bugTableHeader}`}>
+                        <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Name</b></div>
+                        <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Detail</b></div>
+                        <div className={`${styles.bugData} ${styles.bugTitle}`} onClick={handleStatusClick}><b>Status</b></div>
+                        <div className={`${styles.bugData} ${styles.bugTitle}`}><b>Type</b></div>
+                        <div className={`${styles.bugData} ${styles.bugTitle}`} onClick={handlePriorityClick}><b>Priority</b></div>
                     </div>
-                 ))}
-                 <ReactPaginate
-                    onPageChange={handleCurrentPage}
-                    pageCount={Math.ceil(bugsArray.length / ticketsPerPage)}
-                    previousLabel={'Prev'}
-                    nextLabel={'Next'}
-                    containerClassName={styles.pagination}
-                    pageLinkClassName={styles.pagination__link}
-                    previousLinkClassName={styles.pagination__link}
-                    nextLinkClassName={styles.pagination__link}
-                    disabledLinkClassName={styles.pagination__link__disabled}
-                    activeLinkClassName={styles.pagination__link__active}
-                 />
-                 <button onClick={ handlePriorityClick}>Sort By Priority</button>
-                 <button onClick = {handleStatusClick}>Sort By Status</button>
+                    {currentTicket.map(bug => (
+                        <div className={styles.bugsTableRow}>
+                            <div className={styles.bugData}>{bug.name}</div>
+                            <div className={styles.bugData}>{bug.detail}</div>
+                            <div className={styles.bugData}>{bug.status}</div>
+                            <div className={styles.bugData}>{bug.type}</div>
+                            <div className={styles.bugData}>{bug.priority}</div>
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.bugTableControls}>
+                <ReactPaginate
+                        onPageChange={handleCurrentPage}
+                        pageCount={Math.ceil(bugsArray.length / ticketsPerPage)}
+                        previousLabel={'Prev'}
+                        nextLabel={'Next'}
+                        containerClassName={styles.pagination}
+                        pageLinkClassName={styles.pagination__link}
+                        previousLinkClassName={styles.pagination__link}
+                        nextLinkClassName={styles.pagination__link}
+                        disabledLinkClassName={styles.pagination__link__disabled}
+                        activeLinkClassName={styles.pagination__link__active}
+                    />
+                    <button onClick={ handlePriorityClick}>Sort By Priority</button>
+                    <button onClick = {handleStatusClick}>Sort By Status</button>
+                </div>
             </div>
-        </div>
+            </div>
     )
 }
 

@@ -35,34 +35,37 @@ const Projects = () => {
     },[searchValue])
 
     return (
-        <div className="projects-page">
-            Project Details
-            <div className="new-project">
-                <Link to="/projects/new">
-                    <button>New Project</button>
-                </Link>
-            </div>
-            <div className="projects-container">
-                <div className="project-container-title">Projects</div>
-                <div className="project-container-searchbar">
-                    <ProjectTableSearch callback={searchValue => setSearchValue(searchValue)}/>
+        <div className="projects-page-container">
+            <div className="projects-page">
+                <div className="projects-page-top">
+                    <h4>Project Details</h4>
                 </div>
-                <div className="project-list-container">
-                    <div className="projectTable">
-                        <div className="projects projects-header">
-                            <div className="project-name">
-                                <h4>Project Name</h4>
+                <div className="projects-container">
+                    <div className="project-container-searchbar">
+                        <ProjectTableSearch callback={searchValue => setSearchValue(searchValue)}/>
+                    </div>
+                    <div className="project-list-container">
+                        <div className="projectTable">
+                            <div className="projects projects-header">
+                                <div className="project-name">
+                                    <h4>Project Name</h4>
+                                </div>
+                                <div className="project-details">
+                                    <h4>Project Details</h4>
+                                </div>
+                                <div className="project-menu">
+                                    <h4>Actions</h4>
+                                </div>
                             </div>
-                            <div className="project-details">
-                                <h4>Project Details</h4>
-                            </div>
-                            <div className="project-menu">
-                                <h4>Actions</h4>
-                            </div>
-                         </div>
-                        < ProjectTable projects={filteredArray}/>
+                            < ProjectTable projects={filteredArray}/>
+                        </div>
                     </div>
                 </div>
+                <div className="new-project">
+                        <Link to="/projects/new">
+                            <button>New Project</button>
+                        </Link>
+                    </div>
             </div>
         </div>
     )

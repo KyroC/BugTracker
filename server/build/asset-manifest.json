@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.2f831db9.css",
+    "main.css": "/static/css/main.88acb773.css",
     "main.js": "/static/js/main.e5b9a6a9.js",
     "static/media/buggy-logo.png": "/static/media/buggy-logo.b1e9e0ee62d39b8fb711.png",
     "index.html": "/index.html",
-    "main.2f831db9.css.map": "/static/css/main.2f831db9.css.map",
+    "main.88acb773.css.map": "/static/css/main.88acb773.css.map",
     "main.e5b9a6a9.js.map": "/static/js/main.e5b9a6a9.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f831db9.css",
+    "static/css/main.88acb773.css",
     "static/js/main.e5b9a6a9.js"
   ]
 }

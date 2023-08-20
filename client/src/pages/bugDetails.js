@@ -99,129 +99,139 @@ const BugDetail = () => {
     }, [ticketProject])
 
     return (
-        <div className={styles.ticketDetailsPage}>
-
-            <div className={styles.ticketDetailsGrid}>
-                <div className={styles.ticketDetailsTitle}>
-                    <h3>Details</h3>
-                </div>
-                <form>
-                <div className={styles.ticketDetailsTable}>
-                    <div className={styles.ticketDetailsItem}>
-                        <h4>Ticket Name</h4>
-                            <div className={styles.ticketName}>
-                                <input type="text" value={ticketName}
-                                className={styles.ticketInput} onChange={handleTicketName}/>
+        <div className={styles.ticketDetailsContainer}>
+            <div className={styles.ticketDetailsPage}>
+                <div className={styles.ticketDetailsGridContainer}>
+                    <div className={styles.ticketDetailsGrid}>
+                        <div className={styles.ticketDetailsTitle}>
+                            <h3>Details</h3>
+                        </div>
+                        <form>
+                        <div className={styles.ticketDetailsTable}>
+                            <div className={styles.ticketDetailsItem}>
+                                <h4>Ticket Name</h4>
+                                    <div className={styles.ticketName}>
+                                        <input type="text" value={ticketName}
+                                        className={styles.ticketInput} onChange={handleTicketName}/>
+                                    </div>
                             </div>
-                    </div>
-                    <div className={styles.ticketDetailsItem}>
-                        <h4>Bug Description</h4>
-                        <div className={styles.ticketDetail}>
-                            <input type="text" value={ticketDetail}
-                                className={styles.ticketInput} onChange={handleTicketDetail}/>
-                        </div>    
-                    </div>
-                    <div className={styles.ticketDetailsItem}>
-                        <h4>Ticket Priority</h4>
-                        <div className={styles.ticketPriority}>
-                            <select className={styles.ticketInput} onChange={handleTicketPriority}>
-                                {priorities.map((priority) => {
-                                    if(ticketPriority === priority) {
-                                        return(
-                                            <option value={priority} selected>{priority}</option>
-                                        )
-                                    }
-                                    return(
-                                        <option value={priority}>{priority}</option>
-                                    )
-                                }
-                                )}
-                            </select>
+                            <div className={styles.ticketDetailsItem}>
+                                <h4>Bug Description</h4>
+                                <div className={styles.ticketDetail}>
+                                    <input type="text" value={ticketDetail}
+                                        className={styles.ticketInput} onChange={handleTicketDetail}/>
+                                </div>    
+                            </div>
+                            <div className={styles.ticketDetailsItem}>
+                                <h4>Ticket Priority</h4>
+                                <div className={styles.ticketPriority}>
+                                    <select className={styles.ticketInput} onChange={handleTicketPriority}>
+                                        {priorities.map((priority) => {
+                                            if(ticketPriority === priority) {
+                                                return(
+                                                    <option value={priority} selected>{priority}</option>
+                                                )
+                                            }
+                                            return(
+                                                <option value={priority}>{priority}</option>
+                                            )
+                                        }
+                                        )}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className={styles.ticketDetailsItem}>
+                                <h4>Ticket Status</h4>
+                                <div className={styles.ticketStatus}>
+                                    <select className={styles.ticketInput} onChange={handleTicketStatus}>
+                                        {statuses.map((status) => {
+                                            if(ticketStatus===status) {
+                                                return(
+                                                    <option value={status} selected>{status}</option>
+                                                )
+                                            } 
+                                            return(
+                                                <option value={status}>{status}</option>
+                                            )
+                                        })}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className={styles.ticketDetailsItem}>
+                                <h4>Submitter</h4>
+                                <div className={styles.ticketInput}>{ticketArray?.creator?.name}</div>
+                            </div>
+                            <div className={styles.ticketDetailsItem}>
+                                <h4>Assigned personnel</h4>
+                                <div>
+                                    <select className={styles.ticketInput} onChange={handleTicketUsers}>
+                                        {projectUsers.map(user=> (
+                                            <option value={user.id}>
+                                                {user.name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles.ticketDetailsItem}>
-                        <h4>Ticket Status</h4>
-                        <div className={styles.ticketStatus}>
-                            <select className={styles.ticketInput} onChange={handleTicketStatus}>
-                                {statuses.map((status) => {
-                                    if(ticketStatus===status) {
-                                        return(
-                                            <option value={status} selected>{status}</option>
-                                        )
-                                    } 
-                                    return(
-                                        <option value={status}>{status}</option>
-                                    )
-                                })}
-                            </select>
+                        <div className={styles.ticketDetailsItemUpdate}>
+                            <button type="submit" onClick={handleFromSubmit}>Update</button>
                         </div>
-                    </div>
-                    <div className={styles.ticketDetailsItem}>
-                        <h4>Submitter</h4>
-                        <div className={styles.ticketInput}>{ticketArray?.creator?.name}</div>
-                    </div>
-                    <div className={styles.ticketDetailsItem}>
-                        <h4>Assigned personnel</h4>
-                        <div>
-                            <select className={styles.ticketInput} onChange={handleTicketUsers}>
-                                {projectUsers.map(user=> (
-                                    <option value={user.id}>
-                                        {user.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                        </form>
                     </div>
                 </div>
-                <button type="submit" onClick={handleFromSubmit}>Update</button>
-                </form>
-            </div>
-            <div className={styles.ticketDetailsGrid}>
-                <div className={styles.ticketDetailsTitle}>
-                    <h3>Comments</h3>
-                </div>
-                <div className={styles.commentFormContainer}>
-                            <form className={styles.commentForm}>
-                                <input placeholder="Comment" className={styles.commentFormInput} value={userComment} onChange={handleComment}></input>
-                                <button className={styles.commentFormButton} onClick={handleCommentSubmit}>Submit</button>
-                            </form>
-                            
+                <div className={styles.ticketDetailsGridContainer}>
+                    <div className={styles.ticketDetailsGrid}>
+                        <div className={styles.ticketDetailsTitle}>
+                            <h3>Comments</h3>
                         </div>
-                <div >
-                    <div className={styles.commentTable}>
-                    <div className={styles.commentTableDetails}>
-                        <div className={`${styles.commentTableDetailsItem} ${styles.commentTableDetailsTitle}`}>
+                        <div className={styles.commentFormContainer}>
+                                    <form className={styles.commentForm}>
+                                        <input placeholder="Comment" className={styles.commentFormInput} value={userComment} onChange={handleComment}></input>
+                                        <button className={styles.commentFormButton} onClick={handleCommentSubmit}>Submit</button>
+                                    </form>
+                                    
+                                </div>
+                        <div >
+                            <div className={styles.commentTable}>
+                                <div className={styles.commentTableDetails}>
+                                    <div className={`${styles.commentTableDetailsItem} ${styles.commentTableDetailsTitle}`}>
                                         <h4>Comment</h4>    
                                     </div>
                                     <div className={`${styles.commentTableDetailsItem} ${styles.commentTableDetailsTitle}`}>
                                         <h4>Submitter</h4>
                                     </div>
-                                
                                 </div>
-                            {ticketArray.comments?.map((bug) => (
-                                <div className={styles.commentTableDetails}>
-                                    <div className={styles.commentTableDetailsItem}>{bug.Comment}</div>
-                                    <div className={styles.commentTableDetailsItem}>{bug.Submitter}</div>
-                                </div>
-                            ))}
+                                {ticketArray.comments?.map((bug) => (
+                                    <div className={styles.commentTableDetails}>
+                                        <div className={styles.commentTableDetailsItem}>{bug.Comment}</div>
+                                        <div className={styles.commentTableDetailsItem}>{bug.Submitter}</div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
-            <div className={styles.ticketDetailsGrid}>
-                <div className={styles.ticketDetailsTitle}>
-                    <h3>History</h3>
+                <div className={styles.ticketDetailsGridContainer}>
+                    <div className={styles.ticketDetailsGrid}>
+                        <div className={styles.ticketDetailsTitle}>
+                            <h3>History</h3>
+                        </div>
+                        <div>
+                            History Table
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    History Table
-                </div>
-            </div>
-            <div className={styles.ticketDetailsGrid}>
-                <div className={styles.ticketDetailsTitle}>
-                    <h3>Pictures</h3>
-                </div>
-                <div>
-                    Picture table
-                    <button>Add Picture</button>
+                <div className={styles.ticketDetailsGridContainer}>
+                    <div className={styles.ticketDetailsGrid}>
+                        <div className={styles.ticketDetailsTitle}>
+                            <h3>Pictures</h3>
+                        </div>
+                        <div>
+                            Picture table
+                            <button>Add Picture</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

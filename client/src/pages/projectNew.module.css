@@ -1,0 +1,11 @@
+.projectNewContainer {
+    height: calc(100vh - 64px);
+    padding: 20px 10px;
+}
+.projectNew {
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.05);
+}

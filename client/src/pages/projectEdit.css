@@ -1,3 +1,14 @@
+.project-edit-container {
+    height:calc(100vh - 64px);
+    padding: 20px 10px 20px 10px;
+}
+.project-edit {
+    background-color:white;
+    height:100%;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.05);
+    padding:10px;
+}
 .assigned-user-details-wrapper {
     border-top: solid 1px black;
     border-left: solid 1px black;

@@ -118,7 +118,7 @@ const Dashboard = () => {
         <div className={styles.dashboard}>
             <div className= {styles.dashboardContainer}>
                 <div className = {styles.dashboardItem}>
-                    <b>Assigned ticket count by priority</b>    
+                        <b>Assigned ticket count by priority</b> 
                     <Chart 
                     chartType="Bar" 
                     data={dataPriority}

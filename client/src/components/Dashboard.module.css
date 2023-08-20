@@ -5,10 +5,14 @@
     padding:10px;
 }
 .dashboardItem{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     margin:10px;
     background-color:white;
     border-radius:20px;
     padding:10px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
     text-align:center;
+
 }

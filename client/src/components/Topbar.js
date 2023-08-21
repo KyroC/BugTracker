@@ -4,7 +4,8 @@ import './Topbar.css';
 import userService from '../services/userService';
 
 const onLogoutClick = () => {
-    localStorage.clear()
+    localStorage.clear();
+    window.location.reload();
 }
 const userProfile = () => {
     return userService.getUser()

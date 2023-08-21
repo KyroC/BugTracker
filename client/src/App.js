@@ -52,6 +52,7 @@ const App = () => {
       setUser(user)
       setEmail("")
       setPassword("")
+      window.location.reload();
     } catch (exception){
       setErrorMessage("Wrong credentials")
       setTimeout(()=> {

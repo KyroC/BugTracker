@@ -22,21 +22,21 @@ app.use(express.json())
 app.use(cors())
 app.use(express.static('build'))
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'), function(err) {
-    if (err) {
-      res.status(500).send(err) 
-    }
-    console.log(__dirname)
-  })
-})
-
 
 //Routes
 app.use('/api/bugs', bugRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/projects', projectRouter)
 app.use('/api/login', loginRouter)
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/build/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err) 
+    }
+  })
+})
+
 
 
 const PORT = process.env.PORT

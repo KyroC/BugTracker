@@ -48,6 +48,16 @@ Current stage: MVP
   - Render: Platform for deploying modern web applications.
   - React Build: Production-ready build of the frontend.
 
+## Things to fix
+1.  After login - Refresh required to get data
+2.  Edit Project page does not show the name of project (should show so users will know which project is being clicked on 
+3.   ~~Refreshing page causes get error ~~(Fixed)
+4.  To add acknowledgement when form is submitted successfully
+5.  Comment table doesn’t refresh after submitting comment page
+6.  Adding tickets doesn’t show up instantly after adding
+Second priority:
+1. History tracking for bugs and projects
+2. Picture table
 
 ## Created by 
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import projectService from '../services/projectService'
 import styles from './projectNew.module.css'
 
@@ -12,7 +12,7 @@ const ProjectNew = () => {
         const [projectDetails, setProjectDetails] = useState("")
         const [projectUsers, setProjectUsers] = useState([])
         const [userArray, setUserArray] = useState([])
-
+        const navigate = useNavigate()
         useEffect(() => {
             users()
             .then(res => {console.log(res)
@@ -30,6 +30,10 @@ const ProjectNew = () => {
             console.log('project user:', event.target.value)
             event.preventDefault()
             setProjectUsers(event.target.value)
+        }
+        let changeLocation = (redirect) => {
+            navigate(redirect, {replace:true});
+            window.location.reload()
         }
         let handleProjectSubmit = () => {
             let projectObject = {
@@ -64,7 +68,7 @@ const ProjectNew = () => {
                                 ))}
                             </select>
                         </label>
-                        <Link to="/projects">
+                        <Link to="/projects" onClick={() => changeLocation('/projects')}>
                             <button onClick={handleProjectSubmit}>
                                 Create Project
                             </button>

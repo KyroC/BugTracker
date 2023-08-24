@@ -1,5 +1,5 @@
 import { useState} from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import projectService from '../services/projectService.js'
 import bugService from '../services/bugService'
 import styles from './addTicket.module.css'
@@ -10,6 +10,7 @@ const AddTicket = () => {
     const [ticketPriority, setTicketPriority] = useState("High")
     const [ticketStatus, setTicketStatus] = useState("Open")
     const { id }= useParams()
+    const navigate = useNavigate()
 
     const handleTicketName = (event) => {
         event.preventDefault()
@@ -27,7 +28,11 @@ const AddTicket = () => {
         event.preventDefault()
         setTicketStatus(event.target.value)
     }
-    const handleTicketSubmit = () => {
+    let changeLocation = (redirect) => {
+        navigate(redirect, {replace:true});
+        window.location.reload();
+    }
+    const handleTicketSubmit = (redirect) => {
         let ticketObj = {
             name: ticketName,
             detail: ticketDetails,
@@ -37,9 +42,13 @@ const AddTicket = () => {
             project: id
         }
         bugService.addBug(ticketObj)
-            .then(res => projectService.addTicket(id,res._id))
-        
+            .then(res => {
+                projectService.addTicket(id,res._id)
+                changeLocation(redirect)
+            }
+            )
     }
+ 
 
     return (
         <div className={styles.addTicketContainer}>
@@ -67,8 +76,8 @@ const AddTicket = () => {
                                 <option value="Solved">Solved</option>
                             </select> < br />
                         </label>
-                        <Link to={"/projects/" + id + "/edit"}>
-                            <button onClick={handleTicketSubmit}>Create Ticket</button>
+                        <Link to={"/projects/" + id + "/edit"} >
+                            <button onClick={() => handleTicketSubmit("/projects/" + id + "/edit")} >Create Ticket</button>
                         </Link>
                     </form>
                 </div>

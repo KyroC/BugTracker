@@ -20,8 +20,9 @@ const Projects = () => {
     useEffect(() => {
        projectList()
         .then(res => {
-            setProjectsArray(res)
-            setFilteredArray(res)
+            
+            setProjectsArray(res.toReversed())
+            setFilteredArray(res.toReversed())
             console.log(res)
         })
     },[])   

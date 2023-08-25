@@ -3,7 +3,7 @@ LINK: https://bug-2s2y.onrender.com/
 
 Use either the admin or user account to view the app (Admin priviledge to be added)
 
-# MERN Stack Bug Tracker (Baygon MVP)
+# MERN Stack Bug Tracker (Buggy MVP)
 
 This is a full-stack project management and ticketing system built using the MERN (MongoDB, Express.js, React, Node.js) stack. It provides authentication, CRUD capabilities, authorization, and data analysis features for efficient project and ticket management. 
 

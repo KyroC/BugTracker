@@ -143,6 +143,7 @@ const Dashboard = () => {
                 </div>
                 <div className = {styles.dashboardItem}>
                     <h3>Assigned Projects</h3>
+                    <a>To be added</a>
                 </div>
             </div>
         </div>

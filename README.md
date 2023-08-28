@@ -62,5 +62,3 @@ Second priority:
 ## Created by 
 
 - [TT](https://github.com/KyroC)
-
-

@@ -56,8 +56,8 @@ Current stage: MVP
 5.  ~~Comment table doesn’t refresh after submitting comment page~~
 6.  ~~Adding tickets doesn’t show up instantly after adding~~
 Second priority:
-1. History tracking for bugs and projects
-2. Picture table
+1. History tracking for bugs and projects (to be added)
+2. Picture table (to be added)
 
 ## Created by 
 

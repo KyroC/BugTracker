@@ -220,6 +220,7 @@ const BugDetail = () => {
                         </div>
                         <div>
                             History Table
+                            (To be added)
                         </div>
                     </div>
                 </div>
@@ -229,7 +230,7 @@ const BugDetail = () => {
                             <h3>Pictures</h3>
                         </div>
                         <div>
-                            Picture table
+                            Picture table(To be added)
                             <button>Add Picture</button>
                         </div>
                     </div>
